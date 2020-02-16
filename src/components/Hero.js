@@ -44,11 +44,13 @@ const Title = styled.h1`
   color: white;
 `
 
-const Hero = props => (
-  <Wrapper height={props.height}>
-    <BgImg fluid={props.image.fluid} backgroundColor={'#eeeeee'} />
-    <Title>{props.title}</Title>
-  </Wrapper>
-)
+const Hero = props => {
+  return (
+    <Wrapper height={props.height}>
+      <BgImg fluid={props.image.fluid} backgroundColor={'#eeeeee'} />
+      <Title>{props.title}</Title>
+    </Wrapper>
+  )
+}
 
 export default Hero

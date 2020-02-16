@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 let contentfulConfig
 try {
   contentfulConfig = require('./.contentful')
@@ -20,7 +24,7 @@ module.exports = {
     title: 'GCN',
     description:
       'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-    siteUrl: 'https://gcn.netlify.com',
+    siteUrl: 'https://vladabramov.pro',
     image: '/images/share.jpg',
     menuLinks: [
       {
@@ -38,12 +42,29 @@ module.exports = {
     ],
     postsPerFirstPage: 7,
     postsPerPage: 6,
-    basePath: '/',
+    basePath: 'blog',
   },
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/resources/`,
+      },
+    },
     `gatsby-plugin-emotion`,
-    'gatsby-plugin-theme-ui',
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        languages: [`en`, `ru`],
+        defaultLanguage: `en`,
+        redirect: true,
+      },
+    },
     'gatsby-plugin-react-helmet',
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {

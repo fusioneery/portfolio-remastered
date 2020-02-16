@@ -41,7 +41,7 @@ const Item = styled.li`
   }
 `
 
-const Footer = () => (
+export const Footer = () => (
   <Wrapper>
     <List>
       <Item>
@@ -77,5 +77,3 @@ const Footer = () => (
     </List>
   </Wrapper>
 )
-
-export default Footer

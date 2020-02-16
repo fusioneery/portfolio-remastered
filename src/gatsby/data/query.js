@@ -5,6 +5,7 @@ module.exports.data = {
         node {
           slug
           publishDate
+          node_locale
         }
       }
     }
@@ -14,6 +15,7 @@ module.exports.data = {
       edges {
         node {
           slug
+          node_locale
         }
       }
     }
@@ -30,4 +32,15 @@ module.exports.data = {
       }
     }
   }`,
+  contacts: `
+  {
+    allContentfulContact {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+  }
+  `,
 }

@@ -89,8 +89,6 @@ export const globalStyles = css`
     padding: 0;
     border: 0;
     font-size: 100%;
-    /* stylelint-disable-next-line */
-    font: inherit;
     vertical-align: baseline;
   }
 
@@ -112,6 +110,17 @@ export const globalStyles = css`
   }
   footer {
     width: 100%;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+    font-weight: normal;
+    line-height: 1.3;
   }
 
   /* End Fix to Place Footer on Bottom of Viewport */
@@ -206,5 +215,43 @@ export const globalStyles = css`
   body:not(.user-is-tabbing) textarea:focus,
   body:not(.user-is-tabbing) a:focus {
     outline: none;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  @keyframes heart {
+    0% {
+      transform: scale(0.75);
+    }
+    20% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(0.75);
+    }
+    60% {
+      transform: scale(1);
+    }
+    80% {
+      transform: scale(0.75);
+    }
+    100% {
+      transform: scale(0.75);
+    }
   }
 `
