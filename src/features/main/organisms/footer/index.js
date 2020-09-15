@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
 import styled from '@emotion/styled'
-import { useIntl, Link, FormattedMessage } from 'gatsby-plugin-intl'
-import { prop, ifProp, switchProp } from 'styled-tools'
-import { ymGoal } from '../../../lib/analytics'
-import { smoothScroll } from '../../../lib/smooth-scroll'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
+import { FormattedMessage, Link, useIntl } from 'gatsby-plugin-intl'
+import React, { useState } from 'react'
+import { ifProp, prop, switchProp } from 'styled-tools'
+
+import { ymGoal } from 'lib/analytics'
+import { MAIN_ANCHORS } from '../../constants/anchors'
 
 export const Footer = ({ contacts, email, phone, resume }) => {
-  const [skillsHeight, setSkillsHeight] = useState(0)
-  const [worksHeight, setWorksHeight] = useState(0)
   const intl = useIntl()
   const contactsList = contacts.map(({ node: { name, link } }, i) => (
-    <FooterContact key={i} href={link} target="_blank" rel="me">
+    <FooterContact key={i} to={link} target="_blank" rel="me">
       {name}
     </FooterContact>
   ))
@@ -19,30 +19,25 @@ export const Footer = ({ contacts, email, phone, resume }) => {
       <Cols>
         <Col type="first">
           <div>
-            <FooterLink href={resume} onClick={() => ymGoal('resume')} main>
+            <FooterLink to={resume} main>
               <FormattedMessage id="footer.cv" />
             </FooterLink>
           </div>
           <div>
-            <FooterLink
-              onClick={e => {
-                e.preventDefault()
-                smoothScroll(skillsHeight)
-              }}
-            >
+            <FooterLink to={`#${MAIN_ANCHORS.Skills}`}>
               <FormattedMessage id="footer.myskills" />
             </FooterLink>
-            <FooterLink onClick={() => smoothScroll(worksHeight)}>
+            <FooterLink to={`#${MAIN_ANCHORS.Works}`}>
               <FormattedMessage id="footer.myworks" />
             </FooterLink>
           </div>
         </Col>
         <Col type="second">{contactsList}</Col>
         <Col type="third">
-          <FooterLink href={'mailto:' + email} main>
+          <FooterLink to={'mailto:' + email} main>
             {email}
           </FooterLink>
-          <FooterLink href={'tel:' + phone} main>
+          <FooterLink to={'tel:' + phone} main>
             {phone}
           </FooterLink>
         </Col>
@@ -78,7 +73,7 @@ const FooterContact = styled(Link)`
   }
 `
 
-const FooterLink = styled(Link)`
+const FooterLink = styled(AnchorLink)`
   text-align: center;
   font-size: 16px;
   margin-top: 10px;
@@ -109,6 +104,7 @@ const Heart = styled.i`
   color: red;
   opacity: 0.8;
   animation: heart 1.5s linear 0s infinite;
+  font-style: normal;
 `
 
 const Copyright = styled.div`

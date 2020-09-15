@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
 import styled from '@emotion/styled'
+import React, { useState } from 'react'
+
 import { theme } from '../../../lib/theme'
 
 const Text = ({ as, children, className }) => {
@@ -9,7 +10,7 @@ const Text = ({ as, children, className }) => {
 
 export const Heading = ({ children, as = 'h1', className }) => {
   return (
-    <StyledText className={className} as={as}>
+    <StyledText {...{className, as}}>
       {children}
     </StyledText>
   )

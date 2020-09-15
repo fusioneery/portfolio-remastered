@@ -8,13 +8,12 @@ import Card from '../components/Card'
 import CardList from '../components/CardList'
 import PageTitle from '../components/PageTitle'
 import Pagination from '../components/Pagination'
-import Container from '../components/Container'
 
 const TagTemplate = ({ data, pageContext }) => {
   const posts = orderBy(
     data.contentfulTag.post,
     // eslint-disable-next-line
-    [object => new moment(object.publishDateISO)],
+    [(object) => new moment(object.publishDateISO)],
     ['desc']
   )
 
@@ -39,18 +38,16 @@ const TagTemplate = ({ data, pageContext }) => {
           description={`Posts Tagged: ${startCase(title)}`}
           image={ogImage}
         />
-        <Container>
-          <PageTitle small>
-            {numberOfPosts} Posts Tagged: &ldquo;
-            {title}
-            &rdquo;
-          </PageTitle>
-          <CardList>
-            {posts.slice(skip, limit * humanPageNumber).map(post => (
-              <Card {...post} key={post.id} basePath={basePath} />
-            ))}
-          </CardList>
-        </Container>
+        <PageTitle small>
+          {numberOfPosts} Posts Tagged: &ldquo;
+          {title}
+          &rdquo;
+        </PageTitle>
+        <CardList>
+          {posts.slice(skip, limit * humanPageNumber).map((post) => (
+            <Card {...post} key={post.id} basePath={basePath} />
+          ))}
+        </CardList>
         <Pagination context={pageContext} />
       </Layout>
     </>

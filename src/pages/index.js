@@ -1,8 +1,11 @@
 import React from 'react'
+
 import { graphql, useStaticQuery } from 'gatsby'
-import { Footer } from '../features/index/footer'
+
+import { Footer } from '../features/main/organisms/footer'
+import { Works } from '../features/main/organisms/works'
 import { Layout } from '../ui/molecules/layout'
-import { Works } from '../features/index/works'
+import { Skills } from 'features/main/organisms/skills'
 
 export const query = graphql`
   query allInfo($locale: String) {
@@ -42,11 +45,10 @@ export const query = graphql`
           workLink
           image {
             fluid {
-              base64
-              srcWebp
-              srcSetWebp
+              ...GatsbyContentfulFluid
             }
           }
+          bgColor
           description {
             json
           }
@@ -68,7 +70,8 @@ export default ({
   }
   return (
     <Layout>
-      <Works works={allContentfulWork} />
+      <Skills />
+      <Works works={allContentfulWork.edges} />
       <Footer {...footerData} />
     </Layout>
   )

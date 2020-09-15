@@ -1,12 +1,12 @@
-import React from 'react'
-import { navigate, Link } from 'gatsby'
 import styled from '@emotion/styled'
-import SelectIcon from '../icons/SelectIcon'
+import React from 'react'
+
+import { Link, navigate } from 'gatsby'
 
 const Wrapper = styled.div`
   width: 100%;
   margin: -1.5rem auto 2.5rem;
-  max-width: ${props => props.theme.sizes.maxWidth};
+  max-width: ${(props) => props.theme.sizes.maxWidth};
   padding: 0 1.5rem;
   display: flex;
   flex-flow: row wrap;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `
 
 const Button = styled(Link)`
-  background: ${props => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.primary};
   color: white;
   padding: 1rem;
   border-radius: 2px;
@@ -24,30 +24,30 @@ const Button = styled(Link)`
   text-decoration: none;
   transition: 0.3s all;
   &:hover {
-    background: ${props => props.theme.colors.highlight};
+    background: ${(props) => props.theme.colors.highlight};
   }
   @media (hover: none) {
-    background: ${props => props.theme.colors.primary} !important;
+    background: ${(props) => props.theme.colors.primary} !important;
   }
 `
 
 const Numbers = styled.div`
-  border: 1px solid ${props => props.theme.colors.secondary};
+  border: 1px solid ${(props) => props.theme.colors.secondary};
   border-radius: 2px;
   display: inline-block;
   float: left;
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
   padding: 1rem;
   background: white;
   position: relative;
   transition: 0.3s all;
   svg {
-    fill: ${props => props.theme.colors.text};
+    fill: ${(props) => props.theme.colors.text};
     margin: 0 0 0 0.25rem;
     transition: 0.3s all;
   }
   &:hover {
-    background: ${props => props.theme.colors.tertiary};
+    background: ${(props) => props.theme.colors.tertiary};
   }
   @media (hover: none) {
     background: white !important;
@@ -71,7 +71,7 @@ const Select = styled.select`
   }
 `
 
-const Pagination = props => {
+const Pagination = (props) => {
   function changePage(e) {
     navigate(
       e.target.value
@@ -100,7 +100,6 @@ const Pagination = props => {
                 </option>
               ))}
             </Select>
-            / {props.context.numberOfPages} <SelectIcon />
           </Numbers>
           <div>
             {props.context.previousPagePath && (

@@ -60,7 +60,7 @@ module.exports = {
         path: `${__dirname}/src/locales`,
         languages: [`en`, `ru`],
         defaultLanguage: `en`,
-        redirect: true,
+        redirect: false,
       },
     },
     'gatsby-plugin-react-helmet',
@@ -120,6 +120,19 @@ module.exports = {
         update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
       },
     },
-    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-anchor-links',
+      options: {
+        offset: -80,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /resources\/icons\/.*\.svg/,
+        },
+      },
+    },
   ],
 }
