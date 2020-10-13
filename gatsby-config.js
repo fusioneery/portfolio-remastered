@@ -21,27 +21,10 @@ try {
 
 module.exports = {
   siteMetadata: {
-    title: 'GCN',
-    description:
-      'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
+    title: '',
+    description: '',
     siteUrl: 'https://vladabramov.pro',
-    image: '/images/share.jpg',
-    menuLinks: [
-      {
-        name: 'Home',
-        slug: '/',
-      },
-      {
-        name: 'About',
-        slug: '/about/',
-      },
-      {
-        name: 'Contact',
-        slug: '/contact/',
-      },
-    ],
-    postsPerFirstPage: 7,
-    postsPerPage: 6,
+    image: '/images/share.png',
     basePath: 'blog',
   },
   plugins: [
@@ -64,7 +47,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
-
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -72,7 +54,6 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
           },
-          `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
@@ -82,6 +63,23 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `vladabramov`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-yandex-metrika`,
+      options: {
+        trackingId: 52903549,
+        webvisor: true,
+        trackHash: true,
+        useCDN: true,
+        afterBody: true,
+        defer: true,
       },
     },
     `gatsby-plugin-catch-links`,
@@ -103,13 +101,22 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'GCN',
-        short_name: 'GCN',
+        name: 'Vlad Abramov Frontend Dev',
+        short_name: 'VA',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'minimal-ui',
-        icon: './static/images/favicon.png',
+        icon: './static/images/icon.png',
+        localize: [
+          {
+            start_url: `/ru/`,
+            lang: `ru`,
+            name: `Влад Абрамов Фронтенд-разработчик`,
+            short_name: `Влад Абрамов`,
+            description: `Фронтенд-разработчик из Москвы с ростом в лида.`,
+          },
+        ],
       },
     },
     'gatsby-plugin-offline',

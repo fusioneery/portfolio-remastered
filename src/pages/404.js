@@ -1,11 +1,12 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
-import { useIntl, Link, FormattedMessage } from 'gatsby-plugin-intl'
 import styled from '@emotion/styled'
-import PageTitle from '../components/PageTitle'
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Img from 'gatsby-image'
+import { FormattedMessage, Link } from 'gatsby-plugin-intl'
+import React from 'react'
+
+import { graphql, useStaticQuery } from 'gatsby'
+import { Layout } from 'ui/molecules/layout'
+
+import { SEO } from 'lib/seo'
 import { theme } from '../lib/theme'
 
 const IMAGE_QUERY = graphql`
@@ -21,18 +22,16 @@ const IMAGE_QUERY = graphql`
 `
 
 const NotFoundPage = () => {
-  const intl = useIntl()
   const imgData = useStaticQuery(IMAGE_QUERY)
-  console.log(imgData)
   return (
     <Layout>
-      <SEO title="404" description="Page Not Found" />
+      <SEO forcedTitle="404" forcedDescription="Page Not Found" />
       <FullContainer>
         <Image fixed={imgData.file.childImageSharp.fixed} alt="404" />
-        <Text className="not-found__text">
+        <Text>
           <FormattedMessage id="404" />
         </Text>
-        <StyledLink to="/" className="go-back">
+        <StyledLink to="/">
           <FormattedMessage id="goBack" />
         </StyledLink>
       </FullContainer>
@@ -47,6 +46,7 @@ const FullContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: ${theme.colors.background};
 `
 
 const StyledLink = styled(Link)`

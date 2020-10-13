@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Heading Pro Wide Trial';
+  font-weight: normal;
+  src: url('/fonts/heading/Heading-Pro-Wide-Regular-trial.woff2');
+}
+
+@font-face {
+  font-family: 'Heading Pro Wide Trial';
+  font-weight: 600;
+  src: url('/fonts/heading/Heading-Pro-Wide-Bold-trial.woff2');
+}
+
+@font-face {
+  font-family: 'Heading Pro Wide Trial';
+  font-weight: 700;
+  src: url('/fonts/heading/Heading-Pro-Wide-ExtraBold-trial.woff2');
+}
+
+@font-face {
+  font-family: 'Heading Pro Wide Trial';
+  font-weight: 800;
+  src: url('/fonts/heading/Heading-Pro-Wide-Heavy-trial.woff2');
+}
+
+@font-face {
+  font-family: 'Heading Pro Wide Trial';
+  font-weight: 900;
+  src: url('/fonts/heading/Heading-Pro-Wide-Black-trial.woff2');
+}

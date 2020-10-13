@@ -1,4 +1,9 @@
 import { css } from '@emotion/core'
+
+import { hexToRGBA } from 'lib/hex-to-rgba'
+
+import { theme } from '.'
+
 export const globalStyles = css`
   /* http://meyerweb.com/eric/tools/css/reset/
  v2.0 | 20110126
@@ -97,16 +102,10 @@ export const globalStyles = css`
   body {
     background: white;
     height: 100%;
+    height: -webkit-fill-available;
   }
   .siteRoot {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  .siteContent {
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 auto;
+    min-height: 100vh;
   }
   footer {
     width: 100%;
@@ -221,7 +220,9 @@ export const globalStyles = css`
   ul {
     list-style: none;
   }
-
+  address {
+    font-style: normal;
+  }
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -233,6 +234,12 @@ export const globalStyles = css`
   }
   * {
     box-sizing: border-box;
+  }
+  .blog-layout *::selection {
+    background: ${hexToRGBA(theme.colors.background, 0.3)};
+  }
+  .index-layout *::selection {
+    background: ${hexToRGBA(theme.colors.breeze, 0.3)};
   }
   @keyframes heart {
     0% {
@@ -253,5 +260,42 @@ export const globalStyles = css`
     100% {
       transform: scale(0.75);
     }
+  }
+  @keyframes blink {
+    0% {
+      color: transparent;
+    }
+    49% {
+      color: transparent;
+    }
+    50% {
+      color: black;
+    }
+  }
+  @keyframes reveal {
+    0%,
+    30% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes wave {
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes swell {
+    0%,
+    100% {
+      top: -1vw;
+    }
+    50% {
+      top: 0px;
+    }
+  }
+  body *:not(input):not(textarea):not([contenteditable='true']) {
+    user-select: auto !important;
   }
 `

@@ -1,20 +1,10 @@
 module.exports.data = {
   posts: `{
-    allContentfulPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulBlogPost(sort: { fields: [updatedAt], order: DESC }) {
       edges {
         node {
           slug
-          publishDate
-          node_locale
-        }
-      }
-    }
-  }`,
-  pages: `{
-    allContentfulPage {
-      edges {
-        node {
-          slug
+          updatedAt
           node_locale
         }
       }
@@ -25,22 +15,8 @@ module.exports.data = {
       edges {
         node {
           slug
-          post {
-            id
-          }
         }
       }
     }
   }`,
-  contacts: `
-  {
-    allContentfulContact {
-      edges {
-        node {
-          name
-        }
-      }
-    }
-  }
-  `,
 }

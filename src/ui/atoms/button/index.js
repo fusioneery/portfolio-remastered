@@ -9,16 +9,17 @@ import { theme } from 'lib/theme'
 export const Button = ({
   type,
   children,
+  icon,
   disabled,
   padding = theme.padding.button.medium,
+  fontWeight = 500,
+  iconSize = 21,
   className,
   onClick,
-  icon,
 }) => {
-  let test = 'a'
   return (
-    <Container {...{ padding, disabled, type, className, onClick }}>
-      {icon && <IconContainer>{icon}</IconContainer>}
+    <Container {...{ padding, disabled, type, className, onClick, fontWeight }}>
+      {icon && <IconContainer size={iconSize}>{icon}</IconContainer>}
       {children}
     </Container>
   )
@@ -26,6 +27,17 @@ export const Button = ({
 
 const IconContainer = styled.div`
   margin-right: 11px;
+  color: inherit;
+  position: relative;
+  top: 1px;
+  width: ${prop('size')}px;
+  height: ${prop('size')}px;
+  & > svg {
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 `
 
 const Container = styled.div`
@@ -37,6 +49,7 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
   border-radius: ${theme.radius.button}px;
+  font-weight: ${prop('fontWeight')};
   &:hover {
     &:after {
       transition: all 0.7s ease;
@@ -48,7 +61,6 @@ const Container = styled.div`
     content: '';
     width: 40px;
     bottom: 0;
-
     background: ${hexToRGBA(theme.colors.background, 0.2)};
     height: 120%;
     left: -3px;
@@ -59,6 +71,14 @@ const Container = styled.div`
   ${switchProp(
     'type',
     {
+      primary: css`
+        background: ${theme.colors.primary};
+        color: ${theme.colors.background};
+        border: 2px solid ${theme.colors.primary};
+        &:after {
+          background: ${hexToRGBA(theme.colors.background, 0.1)};
+        }
+      `,
       secondary: css`
         background: ${theme.colors.background};
         box-shadow: 0px 0px 10px ${hexToRGBA(theme.colors.background, 0.35)};
@@ -66,6 +86,22 @@ const Container = styled.div`
         border: 2px solid ${theme.colors.primary};
         &:after {
           background: ${hexToRGBA(theme.colors.primary, 0.1)};
+        }
+      `,
+      outlined: css`
+        background: transparent;
+        color: ${theme.colors.background};
+        border: 1px solid ${theme.colors.background};
+        &:after {
+          background: ${hexToRGBA(theme.colors.background, 0.1)};
+        }
+      `,
+      invertedOutlined: css`
+        background: ${theme.colors.background};
+        color: ${theme.colors.text};
+        border: 1px solid ${theme.colors.text};
+        &:after {
+          background: ${hexToRGBA(theme.colors.text, 0.1)};
         }
       `,
     },

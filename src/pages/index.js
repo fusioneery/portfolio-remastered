@@ -1,35 +1,43 @@
 import React from 'react'
 
-import { graphql, useStaticQuery } from 'gatsby'
-
-import { Footer } from '../features/main/organisms/footer'
-import { Works } from '../features/main/organisms/works'
-import { Layout } from '../ui/molecules/layout'
+import { BlogLead } from 'features/blog/organisms/lead'
+import { BlogPosts } from 'features/blog/post/posts'
+import { Hero } from 'features/main/organisms/hero'
 import { Skills } from 'features/main/organisms/skills'
+import { graphql } from 'gatsby'
+
+import { Works } from 'features/main/organisms/works/index'
+import { Layout } from 'ui/molecules/layout'
+import { SEO } from 'lib/seo'
 
 export const query = graphql`
   query allInfo($locale: String) {
-    allContentfulContacts(filter: { node_locale: { eq: $locale } }) {
+    allContentfulPersonalData(filter: { node_locale: { eq: $locale } }) {
       edges {
         node {
-          node_locale
+          contentful_id
+          email
+          jobTitle
           name
-          link
-          icon {
+          personDescription {
+            personDescription
+          }
+          resume {
             file {
               url
             }
           }
+          phone
         }
       }
     }
-    allContentfulPersonalData(filter: { node_locale: { eq: $locale } }) {
+    allContentfulContacts(filter: { node_locale: { eq: $locale } }) {
       edges {
         node {
-          email
-          node_locale
-          phone
-          resume {
+          name
+          link
+          order
+          icon {
             file {
               url
             }
@@ -43,6 +51,9 @@ export const query = graphql`
           isMinor
           name
           workLink
+          codeLink
+          detailsLink
+          contentful_id
           image {
             fluid {
               ...GatsbyContentfulFluid
@@ -55,24 +66,83 @@ export const query = graphql`
         }
       }
     }
+    allContentfulSkills(
+      filter: { node_locale: { eq: $locale } }
+      sort: { order: ASC, fields: [order] }
+    ) {
+      edges {
+        node {
+          isLow
+          name
+          node_locale
+          id
+          order
+          description
+          icon {
+            description
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    allContentfulBlogPost(
+      filter: { node_locale: { eq: $locale } }
+      sort: { order: DESC, fields: [updatedAt] }
+    ) {
+      edges {
+        node {
+          body {
+            json
+          }
+          color
+          contentful_id
+          slug
+          pubDate
+          title
+          shownOnIndex
+          tags {
+            slug
+            title
+            id
+          }
+          description {
+            description
+          }
+        }
+      }
+    }
   }
 `
 
+const mapEgdesToNodes = (edge) => edge.node
+
 export default ({
-  data: { allContentfulContacts, allContentfulPersonalData, allContentfulWork },
+  data: {
+    allContentfulContacts,
+    allContentfulPersonalData,
+    allContentfulWork,
+    allContentfulSkills,
+    allContentfulBlogPost,
+  },
 }) => {
-  console.log(allContentfulWork)
-  const footerData = {
-    contacts: allContentfulContacts.edges,
-    email: allContentfulPersonalData.edges[0].node.email,
-    phone: allContentfulPersonalData.edges[0].node.phone,
-    resume: allContentfulPersonalData.edges[0].node.resume.file.url,
-  }
   return (
     <Layout>
-      <Skills />
-      <Works works={allContentfulWork.edges} />
-      <Footer {...footerData} />
+      <SEO />
+      <Hero
+        contacts={allContentfulContacts.edges.map(mapEgdesToNodes)}
+        personalData={allContentfulPersonalData.edges.map(mapEgdesToNodes)}
+      />
+      <Skills skills={allContentfulSkills.edges.map(mapEgdesToNodes)} />
+      <Works works={allContentfulWork.edges.map(mapEgdesToNodes)} />
+      <BlogLead paddingTop="15vh" />
+      <BlogPosts
+        padding
+        posts={allContentfulBlogPost.edges
+          .map(mapEgdesToNodes)
+          .filter((post) => post.shownOnIndex)}
+      />
     </Layout>
   )
 }

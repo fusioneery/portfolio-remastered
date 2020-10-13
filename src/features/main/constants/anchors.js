@@ -1,4 +1,4 @@
 export const MAIN_ANCHORS = {
-    Works: 'works',
-    Skills: 'skills'
+  Works: 'works',
+  Skills: 'skills',
 }
