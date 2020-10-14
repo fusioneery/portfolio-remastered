@@ -119,7 +119,8 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-offline',
+    // 'gatsby-plugin-offline',
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-schema-snapshot`,
       options: {

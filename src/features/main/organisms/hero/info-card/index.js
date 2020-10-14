@@ -1,13 +1,12 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { FormattedMessage, Link, navigate, useIntl } from 'gatsby-plugin-intl'
 import React from 'react'
 import Typist from 'react-typist'
 
 import { MAIN_ANCHORS } from 'features/main/constants/anchors'
 import { hexToRGBA } from 'lib/hex-to-rgba'
-import { sizes, theme } from 'lib/theme'
+import { theme } from 'lib/theme'
 import CvIcon from 'resources/icons/cv.svg'
 import PortfolioIcon from 'resources/icons/portfolio.svg'
 import { Button } from 'ui/atoms/button'
@@ -49,6 +48,7 @@ const buttonsContainerVariants = {
 
 export const InfoCard = ({ resumeUrl, name, jobTitle, personDescription }) => {
   const isRus = useIntl().locale === 'ru'
+  const descriptionWithParagraphes = personDescription.replace(/\n/gi, '<br />')
   return (
     <InViewAnimation variants={infoCardVariants}>
       <Container>
@@ -72,7 +72,10 @@ export const InfoCard = ({ resumeUrl, name, jobTitle, personDescription }) => {
           <Carriage>{`>`}</Carriage>
         </HeadingContainer>
         <Subheading size={isRus ? 33 : 40}>{name}</Subheading>
-        <Description size={isRus ? 16 : 18}>{personDescription}</Description>
+        <Description
+          size={isRus ? 16 : 18}
+          dangerouslySetInnerHTML={{ __html: descriptionWithParagraphes }}
+        />
         <InViewAnimation>
           <ButtonsContainer variants={buttonsContainerVariants}>
             <Button fontWeight={600} type="primary" icon={<PortfolioIcon />}>
@@ -82,7 +85,9 @@ export const InfoCard = ({ resumeUrl, name, jobTitle, personDescription }) => {
             </Button>
             <Button
               fontWeight={600}
-              onClick={() => navigate(resumeUrl, { target: '_blank' })}
+              onClick={() =>
+                navigate('https:' + resumeUrl, { target: '_blank' })
+              }
               type="secondary"
               icon={<CvIcon />}
             >

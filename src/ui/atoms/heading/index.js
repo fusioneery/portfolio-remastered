@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
-import React, { useState } from 'react'
+import React from 'react'
 import { prop } from 'styled-tools'
 
-import { theme } from '../../../lib/theme'
+import { theme } from 'lib/theme'
 
 const Text = ({ as, children, className }) => {
   const TagName = `${as}`

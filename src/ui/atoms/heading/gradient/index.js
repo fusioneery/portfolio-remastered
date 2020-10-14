@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import { hexToRGBA } from 'lib/hex-to-rgba'
 import { theme } from 'lib/theme'
-import { prop } from 'styled-tools'
 
 export const GradientHeading = styled.h5`
   font-size: ${theme.font.size.XL * 0.8}px;

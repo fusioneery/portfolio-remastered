@@ -1,4 +1,3 @@
-import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { theme } from 'lib/theme'
 import React from 'react'
@@ -16,7 +15,6 @@ const SvgContainer = styled.div`
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* height: 75vh; */
   z-index: ${prop('order')};
   display: flex;
   justify-content: flex-start;

@@ -146,7 +146,6 @@ export const Works = ({ works }) => {
                           </WorkName>
                           <AnimatePresence exitBeforeEnter>
                             {isHovered && (
-                              // {true && (
                               <>
                                 <DetailsContainer
                                   layout

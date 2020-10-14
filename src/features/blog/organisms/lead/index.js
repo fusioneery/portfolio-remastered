@@ -81,7 +81,6 @@ const InnerContainer = styled(Container)`
 `
 
 const OuterContainer = styled(Section)`
-  /* background: ${theme.colors.darkBackground}; */
   padding-top: ${prop('paddingTop')};
   background: linear-gradient(
     ${theme.colors.darkBackground} 0%,

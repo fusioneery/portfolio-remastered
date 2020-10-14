@@ -4,15 +4,13 @@ import { BlogLead } from 'features/blog/organisms/lead'
 import { BlogPosts } from 'features/blog/post/posts'
 import { Header } from 'features/main/organisms/header'
 import { graphql } from 'gatsby'
-import { theme } from 'lib/theme'
 import { Layout } from 'ui/molecules/layout'
 
 import { SEO } from 'lib/seo'
-import styled from '@emotion/styled'
 import { useLocation } from '@reach/router'
 import { useIntl } from 'gatsby-plugin-intl'
 
-const Posts = ({ data, pageContext }) => {
+const Posts = ({ data }) => {
   const { formatMessage, locale } = useIntl()
   const { origin } = useLocation()
   const isRus = locale === 'ru'

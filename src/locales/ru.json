@@ -16,7 +16,7 @@
   "footer.myskills": "Навыки",
   "footer.myworks": "Портфолио",
   "copyright": "Владислав Абрамов, Москва. Сделано с ",
-  "blog-lead": "Немного заметок: полезные сниппеты, сложные (и не очень) кейсы, в целом про жизнь.",
+  "blog-lead": "Заметки о разработке: кейсы, хаки, советы и мысли.",
   "works.desc.firstline": "Мои последние проекты.",
   "works.desc.secondline.action.tap": "Тапните",
   "works.desc.secondline.action.hover": "Наведите",
@@ -27,5 +27,6 @@
   "recommendations": "Прочтите и это",
   "blog.goToPosts": "К другим постам",
   "tag.heading": "Все посты по тегу ",
+  "tag": "Тег",
   "name": "Влад Абрамов"
 }

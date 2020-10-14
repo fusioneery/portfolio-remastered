@@ -6,9 +6,8 @@ import React from 'react'
 import { MAIN_ANCHORS } from 'features/main/constants/anchors'
 import { hexToRGBA } from 'lib/hex-to-rgba'
 import { sortByOrder } from 'lib/sorts'
-import { sizes, theme } from 'lib/theme'
+import { theme } from 'lib/theme'
 import scrollDownIcon from 'resources/images/mousedown.png'
-import { mixinPadding } from 'ui/atoms/container'
 import { isMobile } from 'react-device-detect'
 
 export const HeroFooter = ({ email, phone, contacts }) => {

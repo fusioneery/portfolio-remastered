@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { startCase, orderBy } from 'lodash'
 import { SEO } from 'lib/seo'
 import { Layout } from 'ui/molecules/layout'
 import { BlogPosts } from '../post/posts'
@@ -9,25 +8,17 @@ import { BlogLead } from '../organisms/lead'
 import { GradientHeading } from 'ui/atoms/heading/gradient'
 import { theme } from 'lib/theme'
 import { Container } from 'ui/atoms/container'
-import { FormattedMessage, Link } from 'gatsby-plugin-intl'
+import { FormattedMessage, Link, useIntl } from 'gatsby-plugin-intl'
 import styled from '@emotion/styled'
 
 const TagTemplate = ({ data, pageContext }) => {
   const { title, blog_post } = data.contentfulTag
-  const { locale } = pageContext
-  let ogImage
-  try {
-    ogImage = posts[0].heroImage.ogimg.src
-  } catch (error) {
-    ogImage = null
-  }
-
+  const { formatMessage } = useIntl()
   return (
     <Layout>
       <SEO
-        forcedTitle={`Tag: ${startCase(title)}`}
-        forcedDescription={`Posts Tagged: ${startCase(title)}`}
-        forcedImage={ogImage}
+        titleTemplate={`${formatMessage({ id: 'tag' })}: ${title}`}
+        forcedDescription={`${formatMessage({ id: 'tag.heading' })}: ${title}`}
       />
       <Header variant="blog" />
       <TagNameSection>

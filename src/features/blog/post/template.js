@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { FormattedMessage, Link, useIntl } from 'gatsby-plugin-intl'
 import { Disqus } from 'gatsby-plugin-disqus'
+import { useLocation } from '@reach/router'
 
 import { PostBody } from 'features/blog/post/organisms/body'
 import { TagsList } from 'features/blog/tag/organisms/list'
@@ -11,7 +12,6 @@ import { graphql } from 'gatsby'
 import { hexToRGBA } from 'lib/hex-to-rgba'
 import { theme } from 'lib/theme'
 import ArrowRightIcon from 'resources/icons/arrow-right.svg'
-import { mixinPadding } from 'ui/atoms/container'
 import { Heading } from 'ui/atoms/heading'
 import { Layout } from 'ui/molecules/layout'
 
@@ -34,14 +34,17 @@ const PostTemplate = ({ data, pageContext }) => {
     recommendations,
   } = data.contentfulBlogPost
   const { formatMessage } = useIntl()
-  const { basePath, language } = pageContext
+  const { origin } = useLocation()
+  const { language } = pageContext
   const dateTitle = getDateTitle(pubDate, language)
   const { isMobile } = useWindowSize()
   const disqusConfig = {
     identifier: contentful_id,
     title,
   }
-  const image = ogImage?.file?.url ? `https:${ogImage.file.url}` : null
+  const image = ogImage?.file?.url
+    ? `https:${ogImage.file.url}`
+    : `${origin}/images/blog.png`
   const jsonLDMarkup = `{
     "@context": "https://schema.org",
     "@type": "BlogPosting",

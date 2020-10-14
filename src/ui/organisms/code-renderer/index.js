@@ -4,7 +4,7 @@ import React from 'react'
 import { Scrollbars } from 'react-custom-scrollbars'
 
 import { hexToRGBA } from 'lib/hex-to-rgba'
-import { sizes, theme } from 'lib/theme'
+import { theme } from 'lib/theme'
 import { prismTheme } from 'lib/theme/prism-theme'
 import { lighten } from 'polished'
 import { useWindowSize } from 'lib/use-window-size'

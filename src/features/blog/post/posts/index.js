@@ -1,15 +1,14 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { Link, navigate, useIntl } from 'gatsby-plugin-intl'
+import { navigate, useIntl } from 'gatsby-plugin-intl'
 import React from 'react'
 
 import { TagsList } from 'features/blog/tag/organisms/list'
 import { hexToRGBA } from 'lib/hex-to-rgba'
 import { theme } from 'lib/theme'
 import ArrowRightIcon from 'resources/icons/arrow-right.svg'
-import { Container, mixinMaxWidth, mixinPadding } from 'ui/atoms/container'
+import { mixinMaxWidth, mixinPadding } from 'ui/atoms/container'
 import { InViewAnimation } from 'ui/atoms/in-view-animation'
-import { Section } from 'ui/atoms/section'
 import { getDateTitle } from 'lib/get-date-title'
 import { ifProp, prop } from 'styled-tools'
 
