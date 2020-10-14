@@ -16,7 +16,7 @@ export const SEO = ({
   const { locale } = useIntl()
 
   const metaDescription = description || forcedDescription
-  const metaImage = forcedImage || origin + image
+  const metaImage = forcedImage || siteUrl + image
   const metaTitle = forcedTitle || title
 
   return (
