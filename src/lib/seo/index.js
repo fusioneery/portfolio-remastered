@@ -32,6 +32,7 @@ export const SEO = ({
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="image" content={image} />
       <meta name="description" content={metaDescription} />
+      <meta name="author" content="Vlad Abramov" />
 
       <meta property="og:url" content={`${siteUrl}${pathname}`} />
       <meta property="og:title" content={metaTitle} />
