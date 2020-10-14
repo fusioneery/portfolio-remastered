@@ -6,7 +6,6 @@ import { theme } from 'lib/theme'
 import { HeroFooter } from './footer'
 import { Header } from 'features/main/organisms/header'
 import { InfoCard } from './info-card'
-import { HeroTicker } from './ticker'
 import { HeroWaves } from './waves'
 
 export const Hero = ({ personalData, contacts }) => {
@@ -33,7 +32,6 @@ export const Hero = ({ personalData, contacts }) => {
       <link itemProp="url" href="https://vladabramov.pro" />
       <Header />
       <InfoCard {...{ name, jobTitle, personDescription }} resumeUrl={url} />
-      <HeroTicker />
       <HeroFooter {...{ email, phone, contacts }} />
       <HeroWaves />
     </Container>
