@@ -24,7 +24,7 @@ import { GradientHeading } from 'ui/atoms/heading/gradient'
 const PostTemplate = ({ data, pageContext }) => {
   const {
     title,
-    description: { description },
+    description,
     body: { json },
     updatedAtISO,
     ogImage,
@@ -56,7 +56,7 @@ const PostTemplate = ({ data, pageContext }) => {
      ],
     "datePublished": "${pubDate}",
     "dateModified": "${updatedAtISO}",
-    "description": "${description}",
+    "description": "${description?.description}",
     "inLanguage": "${language}",
     "mainEntityOfPage": "True",
     "author": {
@@ -70,7 +70,7 @@ const PostTemplate = ({ data, pageContext }) => {
     <Layout>
       <SEO
         forcedTitle={title}
-        forcedDescription={description}
+        forcedDescription={description?.description}
         forcedImage={image}
       />
       <script type="application/ld+json">{jsonLDMarkup}</script>

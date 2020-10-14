@@ -58,7 +58,9 @@ export const BlogPosts = ({
                   <PostHeader>
                     <PostTitle>{trimHeading(post.title)}</PostTitle>
                     <PostPubdate>{dateTitle}</PostPubdate>
-                    <PostDesc>{post.description.description}</PostDesc>
+                    {post.description?.description && (
+                      <PostDesc>{post.description.description}</PostDesc>
+                    )}
                   </PostHeader>
                   <PostFooter>
                     {post.tags?.length > 0 && <TagsList tags={post.tags} />}
