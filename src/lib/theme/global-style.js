@@ -102,7 +102,7 @@ export const globalStyles = css`
   body {
     background: white;
     height: 100%;
-    height: -webkit-fill-available;
+    /* height: -webkit-fill-available; */
   }
   .siteRoot {
     min-height: 100vh;

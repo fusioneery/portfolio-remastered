@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import React from 'react'
+import Div100vh from 'react-div-100vh'
 
 import { theme } from 'lib/theme'
 
@@ -20,28 +21,31 @@ export const Hero = ({ personalData, contacts }) => {
     },
   } = personalData[0]
   return (
-    <Container itemScope itemType="http://schema.org/Person">
-      <meta itemProp="name" content={name} />
-      <meta itemProp="jobTitle" content={jobTitle} />
-      <img
-        alt={`${name} ${jobTitle}`}
-        itemProp="image"
-        style={{ display: 'none' }}
-        src="https://vladabramov.pro/images/share.png"
-      />
-      <link itemProp="url" href="https://vladabramov.pro" />
-      <Header />
-      <InfoCard {...{ name, jobTitle, personDescription }} resumeUrl={url} />
-      <HeroFooter {...{ email, phone, contacts }} />
-      <HeroWaves />
-    </Container>
+    <Div100vh>
+      <Container itemScope itemType="http://schema.org/Person">
+        <meta itemProp="name" content={name} />
+        <meta itemProp="jobTitle" content={jobTitle} />
+        <img
+          alt={`${name} ${jobTitle}`}
+          itemProp="image"
+          style={{ display: 'none' }}
+          src="https://vladabramov.pro/images/share.png"
+        />
+        <link itemProp="url" href="https://vladabramov.pro" />
+        <Header />
+        <InfoCard {...{ name, jobTitle, personDescription }} resumeUrl={url} />
+        <HeroFooter {...{ email, phone, contacts }} />
+        <HeroWaves />
+      </Container>
+    </Div100vh>
   )
 }
 
 const Container = styled.div`
   background-color: ${theme.colors.secondary};
-  min-height: 100vh;
+  height: 100%;
   z-index: 1;
+  box-sizing: border-box;
   position: relative;
   overflow: hidden;
   display: flex;

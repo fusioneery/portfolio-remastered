@@ -8,7 +8,6 @@ import { hexToRGBA } from 'lib/hex-to-rgba'
 import { sortByOrder } from 'lib/sorts'
 import { theme } from 'lib/theme'
 import scrollDownIcon from 'resources/images/mousedown.png'
-import { isMobile } from 'react-device-detect'
 
 export const HeroFooter = ({ email, phone, contacts }) => {
   const { locale } = useIntl()
@@ -38,11 +37,9 @@ export const HeroFooter = ({ email, phone, contacts }) => {
         </TextLink>
         <IconsList>{contactsIcons}</IconsList>
       </Container>
-      {!isMobile && (
-        <StyledScrollDownLink to={'/#' + MAIN_ANCHORS.Skills}>
-          <ScrollDownIcon alt="scroll down" src={scrollDownIcon} />
-        </StyledScrollDownLink>
-      )}
+      <StyledScrollDownLink to={'/#' + MAIN_ANCHORS.Skills}>
+        <ScrollDownIcon alt="scroll down" src={scrollDownIcon} />
+      </StyledScrollDownLink>
     </Footer>
   )
 }
@@ -51,6 +48,9 @@ const StyledScrollDownLink = styled(Link)`
   position: absolute;
   bottom: 30px;
   left: calc(50% - 18px);
+  ${theme.media.mobile} {
+    display: none;
+  }
 `
 
 const ScrollDownIcon = styled.img`

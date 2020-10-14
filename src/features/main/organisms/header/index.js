@@ -15,17 +15,13 @@ const headerIndexVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: 0.5,
-      duration: 0.6,
+      delay: 0.15,
+      duration: 0.5,
     },
   },
   hidden: {
     y: -20,
     opacity: 0,
-    transition: {
-      delay: 0.5,
-      duration: 0.6,
-    },
   },
 }
 

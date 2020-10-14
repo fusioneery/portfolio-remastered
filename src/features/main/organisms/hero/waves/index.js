@@ -18,7 +18,7 @@ const SvgContainer = styled.div`
   z-index: ${prop('order')};
   display: flex;
   justify-content: flex-start;
-  animation: reveal 2s ease-in-out;
+  animation: reveal 1.5s ease-in-out;
   & > svg {
     width: 100%;
     overflow: visible;
@@ -35,7 +35,7 @@ const SvgContainer = styled.div`
       1: `
         animation: wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite,
          swell 3s ease infinite;
-        animation-delay: 0.7s;
+        animation-delay: 0.6s;
         // color: ${theme.colors.primary};
         color: #1A7AD2;
         height: 500px;
