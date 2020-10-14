@@ -29,10 +29,12 @@ const TagTemplate = ({ data, pageContext }) => {
           <FormattedMessage id="blog.goToPosts" />
         </BackLink>
       </TagNameSection>
-      <BlogPosts
-        padding
-        posts={blog_post.sort((a, b) => a.pubDate - b.pubDate)}
-      />
+      {blog_post?.length > 0 && (
+        <BlogPosts
+          padding
+          posts={blog_post.sort((a, b) => a.pubDate - b.pubDate)}
+        />
+      )}
     </Layout>
   )
 }
