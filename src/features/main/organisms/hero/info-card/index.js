@@ -123,6 +123,9 @@ const Description = styled.h3`
     margin-top: 20px;
     font-size: 15px;
   }
+  ${theme.media.smallMobile} {
+    font-size: 14px;
+  }
 `
 
 const Subheading = styled.h2`
@@ -132,6 +135,10 @@ const Subheading = styled.h2`
   ${theme.media.smallTablet} {
     margin-top: 20px;
     font-size: ${({ size }) => size * 0.75}px;
+  }
+  ${theme.media.smallMobile} {
+    margin-top: 15px;
+    font-size: ${({ size }) => size * 0.65}px;
   }
 `
 

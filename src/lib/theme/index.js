@@ -18,7 +18,6 @@ export const theme = {
     blogBackground: '#1c2026',
     tertiary: '#f3f3f3',
     highlight: '#5b8bf7',
-    lightgray: 'rgba(255,255,255,0.9)',
     darkblue: '#1A1145',
     darkcyan: '#10203C',
     lightblue: 'rgba(101, 148, 240, 0.18)',

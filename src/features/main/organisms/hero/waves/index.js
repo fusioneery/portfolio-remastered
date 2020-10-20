@@ -20,6 +20,7 @@ const SvgContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   animation: reveal 1.5s ease-in-out;
+  pointer-events: none;
   & > svg {
     width: 100%;
     overflow: visible;

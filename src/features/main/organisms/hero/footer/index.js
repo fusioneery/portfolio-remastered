@@ -105,11 +105,17 @@ const TextContactValue = styled.p`
     background: transparent;
     transition: all 0.3s ease-in-out;
   }
+  ${theme.media.smallMobile} {
+    font-size: ${theme.font.size.M * 0.8}px;
+  }
 `
 
 const TextContactHeading = styled.p`
   font-size: ${theme.font.size.M}px;
   font-weight: bold;
+  ${theme.media.smallMobile} {
+    font-size: ${theme.font.size.M * 0.9}px;
+  }
 `
 
 const TextLink = styled.a`
