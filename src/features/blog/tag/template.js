@@ -1,15 +1,17 @@
+import styled from '@emotion/styled'
+import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
 import React from 'react'
+
+import { Header } from 'features/main/organisms/header'
 import { graphql } from 'gatsby'
 import { SEO } from 'lib/seo'
-import { Layout } from 'ui/molecules/layout'
-import { BlogPosts } from '../post/posts'
-import { Header } from 'features/main/organisms/header'
-import { BlogLead } from '../organisms/lead'
-import { GradientHeading } from 'ui/atoms/heading/gradient'
 import { theme } from 'lib/theme'
 import { Container } from 'ui/atoms/container'
-import { FormattedMessage, Link, useIntl } from 'gatsby-plugin-intl'
-import styled from '@emotion/styled'
+import { GradientHeading } from 'ui/atoms/heading/gradient'
+import { Link } from 'ui/atoms/link'
+import { Layout } from 'ui/molecules/layout'
+
+import { BlogPosts } from '../post/posts'
 
 const TagTemplate = ({ data, pageContext }) => {
   const { title, blog_post } = data.contentfulTag

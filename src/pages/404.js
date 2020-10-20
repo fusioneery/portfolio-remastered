@@ -1,12 +1,13 @@
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
-import { FormattedMessage, Link } from 'gatsby-plugin-intl'
+import { FormattedMessage } from 'gatsby-plugin-intl'
 import React from 'react'
 
 import { graphql, useStaticQuery } from 'gatsby'
+import { SEO } from 'lib/seo'
+import { Link } from 'ui/atoms/link'
 import { Layout } from 'ui/molecules/layout'
 
-import { SEO } from 'lib/seo'
 import { theme } from '../lib/theme'
 
 const IMAGE_QUERY = graphql`

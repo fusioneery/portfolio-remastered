@@ -1,11 +1,11 @@
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import { Link } from 'gatsby-plugin-intl'
 import React from 'react'
 import { switchProp } from 'styled-tools'
 
 import { hexToRGBA } from 'lib/hex-to-rgba'
 import { theme } from 'lib/theme'
+import { Link } from 'ui/atoms/link'
 
 export const TagsList = ({ tags, variant = 'posts' }) => {
   return (

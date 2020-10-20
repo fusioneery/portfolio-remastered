@@ -1,14 +1,15 @@
 import styled from '@emotion/styled'
-import { motion, useElementScroll, useViewportScroll } from 'framer-motion'
-import { FormattedMessage, Link } from 'gatsby-plugin-intl'
-import React, { useRef } from 'react'
+import { motion } from 'framer-motion'
+import { FormattedMessage } from 'gatsby-plugin-intl'
+import React from 'react'
+import { prop } from 'styled-tools'
 
 import { hexToRGBA } from 'lib/hex-to-rgba'
 import { theme } from 'lib/theme'
 import { Container } from 'ui/atoms/container'
 import { InViewAnimation } from 'ui/atoms/in-view-animation'
+import { Link } from 'ui/atoms/link'
 import { Section } from 'ui/atoms/section'
-import { prop } from 'styled-tools'
 
 const largeTextVariants = {
   visible: {

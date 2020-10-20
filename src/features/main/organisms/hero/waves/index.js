@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
-import { theme } from 'lib/theme'
 import React from 'react'
-import WaveSvg from 'resources/icons/hero-wave.svg'
 import { prop, switchProp } from 'styled-tools'
 
-export const HeroWaves = () =>
+import { theme } from 'lib/theme'
+import WaveSvg from 'resources/icons/hero-wave.svg'
+
+const HeroWaves = () =>
   new Array(3).fill(0).map((_, idx) => (
     <SvgContainer key={idx} order={idx}>
       <WaveSvg />
@@ -27,14 +28,12 @@ const SvgContainer = styled.div`
     ${switchProp('order', {
       0: `
         color: #52BAD9;
-        animation: wave 4s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite,
-         swell 2s ease infinite;
+        animation: wave 4s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
         height: 600px;
         opacity: 0.87;
       `,
       1: `
-        animation: wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite,
-         swell 3s ease infinite;
+        animation: wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
         animation-delay: 0.6s;
         // color: ${theme.colors.primary};
         color: #1A7AD2;
@@ -42,8 +41,7 @@ const SvgContainer = styled.div`
         opacity: 0.7;
       `,
       2: `
-        animation: wave 8s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite,
-         swell 5s ease infinite;
+        animation: wave 8s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
         animation-delay: 0.3s;
         color: ${theme.colors.darkcyan};
         height: 400px;
@@ -52,3 +50,4 @@ const SvgContainer = styled.div`
     })}
   }
 `
+export default HeroWaves

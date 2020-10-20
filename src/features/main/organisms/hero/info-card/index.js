@@ -1,10 +1,12 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { FormattedMessage, Link, navigate, useIntl } from 'gatsby-plugin-intl'
+import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
 import React from 'react'
 import Typist from 'react-typist'
+import { prop } from 'styled-tools'
 
 import { MAIN_ANCHORS } from 'features/main/constants/anchors'
+import { navigate } from 'gatsby'
 import { hexToRGBA } from 'lib/hex-to-rgba'
 import { theme } from 'lib/theme'
 import CvIcon from 'resources/icons/cv.svg'
@@ -12,9 +14,9 @@ import PortfolioIcon from 'resources/icons/portfolio.svg'
 import { Button } from 'ui/atoms/button'
 import { Heading } from 'ui/atoms/heading'
 import { InViewAnimation } from 'ui/atoms/in-view-animation'
+import { Link } from 'ui/atoms/link'
 
 import 'react-typist/dist/Typist.css'
-import { prop } from 'styled-tools'
 
 const infoCardVariants = {
   visible: {
@@ -79,7 +81,7 @@ export const InfoCard = ({ resumeUrl, name, jobTitle, personDescription }) => {
         <InViewAnimation>
           <ButtonsContainer variants={buttonsContainerVariants}>
             <Button fontWeight={600} type="primary" icon={<PortfolioIcon />}>
-              <Link to={'../#' + MAIN_ANCHORS.Works}>
+              <Link to={'/#' + MAIN_ANCHORS.Works}>
                 <FormattedMessage id="button.portfolio" />
               </Link>
             </Button>

@@ -5,10 +5,10 @@ import { changeLocale, FormattedMessage, useIntl } from 'gatsby-plugin-intl'
 import React from 'react'
 import { ifProp, prop } from 'styled-tools'
 
-import { Link } from 'gatsby'
 import { theme } from 'lib/theme'
 import blogIcon from 'resources/images/blog.svg'
 import { InViewAnimation } from 'ui/atoms/in-view-animation'
+import { Link } from 'ui/atoms/link'
 
 const headerIndexVariants = {
   visible: {

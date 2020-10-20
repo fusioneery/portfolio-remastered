@@ -1,13 +1,19 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import Div100vh from 'react-div-100vh'
 
+import { Header } from 'features/main/organisms/header'
 import { theme } from 'lib/theme'
 
 import { HeroFooter } from './footer'
-import { Header } from 'features/main/organisms/header'
 import { InfoCard } from './info-card'
-import { HeroWaves } from './waves'
+
+const LazyWaves = lazy(() => {
+  return Promise.all([
+    import('./waves'),
+    new Promise((resolve) => setTimeout(resolve, 500)),
+  ]).then(([moduleExports]) => moduleExports)
+})
 
 export const Hero = ({ personalData, contacts }) => {
   const {
@@ -20,6 +26,7 @@ export const Hero = ({ personalData, contacts }) => {
       file: { url },
     },
   } = personalData[0]
+  const isClient = typeof window !== 'undefined'
   return (
     <Div100vh>
       <Container itemScope itemType="http://schema.org/Person">
@@ -35,7 +42,11 @@ export const Hero = ({ personalData, contacts }) => {
         <Header />
         <InfoCard {...{ name, jobTitle, personDescription }} resumeUrl={url} />
         <HeroFooter {...{ email, phone, contacts }} />
-        <HeroWaves />
+        {isClient && (
+          <Suspense fallback={<div>hi</div>}>
+            <LazyWaves />
+          </Suspense>
+        )}
       </Container>
     </Div100vh>
   )

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { FormattedMessage, Link, useIntl } from 'gatsby-plugin-intl'
+import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
 import React from 'react'
 
 import { MAIN_ANCHORS } from 'features/main/constants/anchors'
@@ -8,6 +8,7 @@ import { hexToRGBA } from 'lib/hex-to-rgba'
 import { sortByOrder } from 'lib/sorts'
 import { theme } from 'lib/theme'
 import scrollDownIcon from 'resources/images/mousedown.png'
+import { Link } from 'ui/atoms/link'
 
 export const HeroFooter = ({ email, phone, contacts }) => {
   const { locale } = useIntl()

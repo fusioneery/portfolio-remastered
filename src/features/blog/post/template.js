@@ -1,25 +1,26 @@
-import React from 'react'
 import styled from '@emotion/styled'
-import { motion } from 'framer-motion'
-import { FormattedMessage, Link, useIntl } from 'gatsby-plugin-intl'
-import { Disqus } from 'gatsby-plugin-disqus'
 import { useLocation } from '@reach/router'
+import { motion } from 'framer-motion'
+import { Disqus } from 'gatsby-plugin-disqus'
+import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
+import React from 'react'
 
 import { PostBody } from 'features/blog/post/organisms/body'
+import { BlogPosts } from 'features/blog/post/posts'
 import { TagsList } from 'features/blog/tag/organisms/list'
 import { Header } from 'features/main/organisms/header'
 import { graphql } from 'gatsby'
+import { useSiteMetadata } from 'hooks/use-site-metadata'
+import { getDateTitle } from 'lib/get-date-title'
 import { hexToRGBA } from 'lib/hex-to-rgba'
+import { SEO } from 'lib/seo'
 import { theme } from 'lib/theme'
+import { useWindowSize } from 'lib/use-window-size'
 import ArrowRightIcon from 'resources/icons/arrow-right.svg'
 import { Heading } from 'ui/atoms/heading'
-import { Layout } from 'ui/molecules/layout'
-
-import { SEO } from 'lib/seo'
-import { BlogPosts } from 'features/blog/post/posts'
-import { getDateTitle } from 'lib/get-date-title'
-import { useWindowSize } from 'lib/use-window-size'
 import { GradientHeading } from 'ui/atoms/heading/gradient'
+import { Link } from 'ui/atoms/link'
+import { Layout } from 'ui/molecules/layout'
 
 const PostTemplate = ({ data, pageContext }) => {
   const {
@@ -34,7 +35,7 @@ const PostTemplate = ({ data, pageContext }) => {
     recommendations,
   } = data.contentfulBlogPost
   const { formatMessage } = useIntl()
-  const { origin } = useLocation()
+  const { siteUrl } = useSiteMetadata()
   const { language } = pageContext
   const dateTitle = getDateTitle(pubDate, language)
   const { isMobile } = useWindowSize()
@@ -44,7 +45,7 @@ const PostTemplate = ({ data, pageContext }) => {
   }
   const image = ogImage?.file?.url
     ? `https:${ogImage.file.url}`
-    : `${origin}/images/blog.png`
+    : `${siteUrl}/images/blog.png`
   const jsonLDMarkup = `{
     "@context": "https://schema.org",
     "@type": "BlogPosting",

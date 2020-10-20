@@ -1,8 +1,8 @@
+import { useLocation } from '@reach/router'
+import { useIntl } from 'gatsby-plugin-intl'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { useLocation } from '@reach/router'
 
-import { useIntl } from 'gatsby-plugin-intl'
 import { useSiteMetadata } from 'hooks/use-site-metadata'
 
 export const SEO = ({
@@ -12,7 +12,7 @@ export const SEO = ({
   titleTemplate,
 }) => {
   const { title, description, siteUrl, image } = useSiteMetadata()
-  const { pathname, origin } = useLocation()
+  const { pathname } = useLocation()
   const { locale } = useIntl()
 
   const metaDescription = description || forcedDescription

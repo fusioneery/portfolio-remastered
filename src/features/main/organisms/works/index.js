@@ -1,11 +1,10 @@
-import styled, { css } from '@emotion/styled'
+import styled from '@emotion/styled'
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 import GatsbyImage from 'gatsby-image'
-import { FormattedMessage, Link, navigate, useIntl } from 'gatsby-plugin-intl'
-import { darken, transparentize } from 'polished'
+import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
+import { transparentize } from 'polished'
 import React, { useState } from 'react'
 import { isMobile } from 'react-device-detect'
-import { Helmet } from 'react-helmet'
 import { ifProp, prop, switchProp } from 'styled-tools'
 
 import { MAIN_ANCHORS } from 'features/main/constants/anchors'
@@ -18,6 +17,7 @@ import { Button } from 'ui/atoms/button'
 import { Container as UIContainer } from 'ui/atoms/container'
 import { Heading } from 'ui/atoms/heading'
 import { InViewAnimation } from 'ui/atoms/in-view-animation'
+import { Link } from 'ui/atoms/link'
 import { RichTextRenderer } from 'ui/molecules/rich-text-renderer'
 
 const descriptionVariants = {

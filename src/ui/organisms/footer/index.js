@@ -1,15 +1,13 @@
 import styled from '@emotion/styled'
-import { AnchorLink } from 'gatsby-plugin-anchor-links'
-import { FormattedMessage, Link, useIntl } from 'gatsby-plugin-intl'
-import React, { useState } from 'react'
-import { ifProp, prop, switchProp } from 'styled-tools'
-
-import { ymGoal } from 'lib/analytics'
-import { sortByOrder } from 'lib/sorts'
-import { theme } from 'lib/theme'
+import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
+import React from 'react'
+import { ifProp, switchProp } from 'styled-tools'
 
 import { MAIN_ANCHORS } from 'features/main/constants/anchors'
 import { graphql, useStaticQuery } from 'gatsby'
+import { sortByOrder } from 'lib/sorts'
+import { theme } from 'lib/theme'
+import { Link } from 'ui/atoms/link'
 
 export const Footer = () => {
   const { locale } = useIntl()
@@ -71,11 +69,11 @@ export const Footer = () => {
         <Col type="first">
           <div>
             <div>
-              <FooterLink to={resume} main>
+              <FooterLink to={resume} isMain>
                 <FormattedMessage id="footer.cv" />
               </FooterLink>
             </div>
-            <FooterLink to="/blog" main>
+            <FooterLink to="/blog" isMain>
               <FormattedMessage id="blog" />
             </FooterLink>
           </div>
@@ -90,10 +88,10 @@ export const Footer = () => {
         </Col>
         <Col type="second">{contactsList}</Col>
         <Col type="third">
-          <FooterExternalLink to={'mailto:' + email} main>
+          <FooterExternalLink to={'mailto:' + email} isMain>
             {email}
           </FooterExternalLink>
-          <FooterExternalLink to={'tel:' + phone} main>
+          <FooterExternalLink to={'tel:' + phone} isMain>
             {phone}
           </FooterExternalLink>
         </Col>
@@ -129,13 +127,13 @@ const FooterContact = styled(Link)`
   }
 `
 
-const FooterLink = styled(AnchorLink)`
+const FooterLink = styled(Link)`
   text-align: center;
   font-size: 16px;
   margin-top: 10px;
   display: block;
   ${ifProp(
-    'main',
+    'isMain',
     `
       transition: all .15s ease-in;
       font-size: 18px;
@@ -149,7 +147,7 @@ const FooterLink = styled(AnchorLink)`
   )}
 `
 
-const FooterExternalLink = styled.a`
+const FooterExternalLink = styled(Link)`
   text-align: center;
   font-size: 16px;
   margin-top: 10px;

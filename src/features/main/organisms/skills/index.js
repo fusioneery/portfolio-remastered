@@ -1,10 +1,9 @@
 import styled from '@emotion/styled'
-import { Scroll } from 'framer'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'gatsby-plugin-intl'
-import React, { useEffect, useRef, useState } from 'react'
-import { ifProp, prop } from 'styled-tools'
+import React, { useRef } from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
+import { ifProp, prop } from 'styled-tools'
 
 import { MAIN_ANCHORS } from 'features/main/constants/anchors'
 import { sizes, theme } from 'lib/theme'
@@ -55,13 +54,12 @@ export const Skills = ({ skills }) => {
                 firstMargin={getFirstMargin()}
                 custom={idx}
                 whileHover={{ y: -15 }}
-                isLow={skill.isLow}
               >
                 <SkillImage
                   alt={skill.icon.description}
                   src={skill.icon.file.url}
                 />
-                <SkillHeading>{skill.name}</SkillHeading>
+                <SkillHeading isLow={skill.isLow}>{skill.name}</SkillHeading>
                 <SkillDesc>{skill.description}</SkillDesc>
               </Skill>
             </InViewAnimation>
@@ -93,6 +91,7 @@ const SkillHeading = styled.p`
   font-size: ${theme.font.size.L}px;
   font-weight: 600;
   white-space: normal;
+  ${ifProp('isLow', 'opacity: 0.6;')}
 `
 
 const SkillImage = styled.img`
@@ -113,7 +112,6 @@ const Skill = styled(motion.div)`
   z-index: 5;
   border-radius: 5px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.06);
-  ${ifProp('isLow', 'opacity: 0.7 !important;')}
   &:not(:first-of-type) {
     margin-left: 50px;
   }
