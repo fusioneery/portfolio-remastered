@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { useLocation } from '@reach/router'
 import { motion } from 'framer-motion'
 import { Disqus } from 'gatsby-plugin-disqus'
 import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'

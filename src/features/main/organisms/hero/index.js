@@ -43,7 +43,7 @@ export const Hero = ({ personalData, contacts }) => {
         <InfoCard {...{ name, jobTitle, personDescription }} resumeUrl={url} />
         <HeroFooter {...{ email, phone, contacts }} />
         {isClient && (
-          <Suspense fallback={<div>hi</div>}>
+          <Suspense fallback={<div></div>}>
             <LazyWaves />
           </Suspense>
         )}

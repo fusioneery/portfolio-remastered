@@ -1,4 +1,3 @@
-import { useLocation } from '@reach/router'
 import { useIntl } from 'gatsby-plugin-intl'
 import React from 'react'
 
