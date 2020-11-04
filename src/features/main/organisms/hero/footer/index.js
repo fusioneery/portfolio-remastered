@@ -30,12 +30,14 @@ export const HeroFooter = ({ email, phone, contacts }) => {
           </TextContactHeading>
           <TextContactValue>{email}</TextContactValue>
         </TextLink>
-        <TextLink href={'tel:' + phone}>
-          <TextContactHeading>
-            <FormattedMessage id="contacts.phone" />
-          </TextContactHeading>
-          <TextContactValue>{phone}</TextContactValue>
-        </TextLink>
+        {phone && (
+          <TextLink href={'tel:' + phone}>
+            <TextContactHeading>
+              <FormattedMessage id="contacts.phone" />
+            </TextContactHeading>
+            <TextContactValue>{phone}</TextContactValue>
+          </TextLink>
+        )}
         <IconsList>{contactsIcons}</IconsList>
       </Container>
       <StyledScrollDownLink to={'/#' + MAIN_ANCHORS.Skills}>

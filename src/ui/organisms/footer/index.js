@@ -91,9 +91,11 @@ export const Footer = () => {
           <FooterExternalLink to={'mailto:' + email} isMain>
             {email}
           </FooterExternalLink>
-          <FooterExternalLink to={'tel:' + phone} isMain>
-            {phone}
-          </FooterExternalLink>
+          {phone && (
+            <FooterExternalLink to={'tel:' + phone} isMain>
+              {phone}
+            </FooterExternalLink>
+          )}
         </Col>
       </Cols>
       <Copyright>
