@@ -76,7 +76,9 @@ export const InfoCard = ({ resumeUrl, name, jobTitle, personDescription }) => {
         <Subheading size={isRus ? 33 : 40}>{name}</Subheading>
         <Description
           size={isRus ? 16 : 18}
-          dangerouslySetInnerHTML={{ __html: descriptionWithParagraphes }}
+          dangerouslySetInnerHTML={{
+            __html: descriptionWithParagraphes,
+          }}
         />
         <InViewAnimation>
           <ButtonsContainer variants={buttonsContainerVariants}>

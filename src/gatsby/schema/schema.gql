@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-10-13T15:11:10.292Z ###
+### Type definitions saved at 2022-01-04T07:21:09.868Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -153,9 +153,54 @@ input Potrace {
   background: String
 }
 
-type ImageSharp implements Node @childOf(types: ["File"]) @dontInfer {
-  fixed(width: Int, height: Int, base64Width: Int, jpegProgressive: Boolean = true, pngCompressionSpeed: Int = 4, grayscale: Boolean = false, duotone: DuotoneGradient, traceSVG: Potrace, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, toFormat: ImageFormat = NO_CHANGE, toFormatBase64: ImageFormat = NO_CHANGE, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int = 0, trim: Float = 0): ImageSharpFixed
-  resolutions(width: Int, height: Int, base64Width: Int, jpegProgressive: Boolean = true, pngCompressionSpeed: Int = 4, grayscale: Boolean = false, duotone: DuotoneGradient, traceSVG: Potrace, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, toFormat: ImageFormat = NO_CHANGE, toFormatBase64: ImageFormat = NO_CHANGE, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int = 0, trim: Float = 0): ImageSharpResolutions @deprecated(reason: "Resolutions was deprecated in Gatsby v2. It's been renamed to \"fixed\" https://example.com/write-docs-and-fix-this-example-link")
+type ImageSharp implements Node
+  @childOf(mimeTypes: [], types: ["File"], many: false)
+  @dontInfer {
+  fixed(
+    width: Int
+    height: Int
+    base64Width: Int
+    jpegProgressive: Boolean = true
+    pngCompressionSpeed: Int = 4
+    grayscale: Boolean = false
+    duotone: DuotoneGradient
+    traceSVG: Potrace
+    quality: Int
+    jpegQuality: Int
+    pngQuality: Int
+    webpQuality: Int
+    toFormat: ImageFormat = NO_CHANGE
+    toFormatBase64: ImageFormat = NO_CHANGE
+    cropFocus: ImageCropFocus = ATTENTION
+    fit: ImageFit = COVER
+    background: String = "rgba(0,0,0,1)"
+    rotate: Int = 0
+    trim: Float = 0
+  ): ImageSharpFixed
+  resolutions(
+    width: Int
+    height: Int
+    base64Width: Int
+    jpegProgressive: Boolean = true
+    pngCompressionSpeed: Int = 4
+    grayscale: Boolean = false
+    duotone: DuotoneGradient
+    traceSVG: Potrace
+    quality: Int
+    jpegQuality: Int
+    pngQuality: Int
+    webpQuality: Int
+    toFormat: ImageFormat = NO_CHANGE
+    toFormatBase64: ImageFormat = NO_CHANGE
+    cropFocus: ImageCropFocus = ATTENTION
+    fit: ImageFit = COVER
+    background: String = "rgba(0,0,0,1)"
+    rotate: Int = 0
+    trim: Float = 0
+  ): ImageSharpResolutions
+    @deprecated(
+      reason: "Resolutions was deprecated in Gatsby v2. It's been renamed to \"fixed\" https://example.com/write-docs-and-fix-this-example-link"
+    )
   fluid(
     maxWidth: Int
     maxHeight: Int
@@ -209,9 +254,32 @@ type ImageSharp implements Node @childOf(types: ["File"]) @dontInfer {
     A list of image widths to be generated. Example: [ 200, 340, 520, 890 ]
     """
     srcSetBreakpoints: [Int] = []
-  ): ImageSharpSizes @deprecated(reason: "Sizes was deprecated in Gatsby v2. It's been renamed to \"fluid\" https://example.com/write-docs-and-fix-this-example-link")
+  ): ImageSharpSizes
+    @deprecated(
+      reason: "Sizes was deprecated in Gatsby v2. It's been renamed to \"fluid\" https://example.com/write-docs-and-fix-this-example-link"
+    )
   original: ImageSharpOriginal
-  resize(width: Int, height: Int, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, jpegProgressive: Boolean = true, pngCompressionLevel: Int = 9, pngCompressionSpeed: Int = 4, grayscale: Boolean = false, duotone: DuotoneGradient, base64: Boolean = false, traceSVG: Potrace, toFormat: ImageFormat = NO_CHANGE, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int = 0, trim: Float = 0): ImageSharpResize
+  resize(
+    width: Int
+    height: Int
+    quality: Int
+    jpegQuality: Int
+    pngQuality: Int
+    webpQuality: Int
+    jpegProgressive: Boolean = true
+    pngCompressionLevel: Int = 9
+    pngCompressionSpeed: Int = 4
+    grayscale: Boolean = false
+    duotone: DuotoneGradient
+    base64: Boolean = false
+    traceSVG: Potrace
+    toFormat: ImageFormat = NO_CHANGE
+    cropFocus: ImageCropFocus = ATTENTION
+    fit: ImageFit = COVER
+    background: String = "rgba(0,0,0,1)"
+    rotate: Int = 0
+    trim: Float = 0
+  ): ImageSharpResize
 }
 
 type ImageSharpFixed {
@@ -312,7 +380,13 @@ type MarkdownWordCount {
   words: Int
 }
 
-type MarkdownRemark implements Node @childOf(mimeTypes: [], types: ["contentfulPostBlogMetaDescriptionTextNode"], many: false) @derivedTypes @dontInfer {
+type MarkdownRemark implements Node
+  @childOf(
+    mimeTypes: []
+    types: ["contentfulPostBlogMetaDescriptionTextNode"]
+    many: false
+  )
+  @dontInfer {
   frontmatter: MarkdownRemarkFrontmatter
   excerpt: String
   rawMarkdownBody: String
@@ -322,11 +396,15 @@ type MarkdownRemarkFrontmatter {
   title: String
 }
 
-type contentfulPostBodyTextNode implements Node @childOf(mimeTypes: [], types: ["ContentfulBlogPost"], many: false) @dontInfer
+type contentfulPostBodyTextNode implements Node
+  @childOf(mimeTypes: [], types: ["ContentfulBlogPost"], many: false)
+  @dontInfer
 
-type contentfulBlogPostMetaDescriptionTextNode implements Node @childOf(mimeTypes: [], types: ["ContentfulBlogPost"], many: false) @dontInfer
+type contentfulBlogPostMetaDescriptionTextNode implements Node
+  @childOf(mimeTypes: [], types: ["ContentfulBlogPost"], many: false)
+  @dontInfer
 
-type ContentfulAsset implements Node @derivedTypes @dontInfer {
+type ContentfulAsset implements Node @dontInfer {
   contentful_id: String
   spaceId: String
   createdAt: Date @dateformat
@@ -338,14 +416,14 @@ type ContentfulAsset implements Node @derivedTypes @dontInfer {
   sys: ContentfulAssetSys
 }
 
-type ContentfulAssetFile @derivedTypes {
+type ContentfulAssetFile {
   url: String
   details: ContentfulAssetFileDetails
   fileName: String
   contentType: String
 }
 
-type ContentfulAssetFileDetails @derivedTypes {
+type ContentfulAssetFileDetails {
   size: Int
   image: ContentfulAssetFileDetailsImage
 }
@@ -360,29 +438,29 @@ type ContentfulAssetSys {
   revision: Int
 }
 
-type contentfulBlogPostBodyRichTextNode implements Node @derivedTypes @dontInfer {
+type contentfulBlogPostBodyRichTextNode implements Node @dontInfer {
   content: [contentfulBlogPostBodyRichTextNodeContent]
   nodeType: String
   body: String
   sys: contentfulBlogPostBodyRichTextNodeSys
 }
 
-type contentfulBlogPostBodyRichTextNodeContent @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContent {
   data: contentfulBlogPostBodyRichTextNodeContentData
   content: [contentfulBlogPostBodyRichTextNodeContentContent]
   nodeType: String
 }
 
-type contentfulBlogPostBodyRichTextNodeContentData @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentData {
   target: contentfulBlogPostBodyRichTextNodeContentDataTarget
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTarget @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTarget {
   sys: contentfulBlogPostBodyRichTextNodeContentDataTargetSys
   fields: contentfulBlogPostBodyRichTextNodeContentDataTargetFields
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTargetSys @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTargetSys {
   space: contentfulBlogPostBodyRichTextNodeContentDataTargetSysSpace
   type: String
   id: String
@@ -394,7 +472,7 @@ type contentfulBlogPostBodyRichTextNodeContentDataTargetSys @derivedTypes {
   contentful_id: String
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTargetSysSpace @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTargetSysSpace {
   sys: contentfulBlogPostBodyRichTextNodeContentDataTargetSysSpaceSys
 }
 
@@ -405,7 +483,7 @@ type contentfulBlogPostBodyRichTextNodeContentDataTargetSysSpaceSys {
   contentful_id: String
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTargetSysContentType @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTargetSysContentType {
   sys: contentfulBlogPostBodyRichTextNodeContentDataTargetSysContentTypeSys
 }
 
@@ -416,7 +494,7 @@ type contentfulBlogPostBodyRichTextNodeContentDataTargetSysContentTypeSys {
   contentful_id: String
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTargetSysEnvironment @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTargetSysEnvironment {
   sys: contentfulBlogPostBodyRichTextNodeContentDataTargetSysEnvironmentSys
 }
 
@@ -427,7 +505,7 @@ type contentfulBlogPostBodyRichTextNodeContentDataTargetSysEnvironmentSys {
   contentful_id: String
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTargetFields @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTargetFields {
   language: contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsLanguage
   heading: contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsHeading
   slug: contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsSlug
@@ -463,19 +541,19 @@ type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsDescription {
   ru: String
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFile @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFile {
   en: contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileEn
   ru: contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileRu
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileEn @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileEn {
   url: String
   details: contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileEnDetails
   fileName: String
   contentType: String
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileEnDetails @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileEnDetails {
   size: Int
   image: contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileEnDetailsImage
 }
@@ -485,14 +563,14 @@ type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileEnDetailsImage
   height: Int
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileRu @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileRu {
   url: String
   details: contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileRuDetails
   fileName: String
   contentType: String
 }
 
-type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileRuDetails @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileRuDetails {
   size: Int
   image: contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileRuDetailsImage
 }
@@ -502,7 +580,7 @@ type contentfulBlogPostBodyRichTextNodeContentDataTargetFieldsFileRuDetailsImage
   height: Int
 }
 
-type contentfulBlogPostBodyRichTextNodeContentContent @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentContent {
   data: contentfulBlogPostBodyRichTextNodeContentContentData
   marks: [contentfulBlogPostBodyRichTextNodeContentContentMarks]
   value: String
@@ -518,7 +596,7 @@ type contentfulBlogPostBodyRichTextNodeContentContentMarks {
   type: String
 }
 
-type contentfulBlogPostBodyRichTextNodeContentContentContent @derivedTypes {
+type contentfulBlogPostBodyRichTextNodeContentContentContent {
   content: [contentfulBlogPostBodyRichTextNodeContentContentContentContent]
   nodeType: String
   value: String
@@ -533,7 +611,7 @@ type contentfulBlogPostBodyRichTextNodeSys {
   type: String
 }
 
-type contentfulBlogPostDescriptionTextNode implements Node @derivedTypes @dontInfer {
+type contentfulBlogPostDescriptionTextNode implements Node @dontInfer {
   description: String
   sys: contentfulBlogPostDescriptionTextNodeSys
 }
@@ -542,7 +620,7 @@ type contentfulBlogPostDescriptionTextNodeSys {
   type: String
 }
 
-type ContentfulBlogPost implements Node @derivedTypes @dontInfer {
+type ContentfulBlogPost implements Node @dontInfer {
   shownOnIndex: Boolean
   pubDate: Date @dateformat
   color: String
@@ -550,8 +628,11 @@ type ContentfulBlogPost implements Node @derivedTypes @dontInfer {
   slug: String
   tags: [ContentfulTag] @link(by: "id", from: "tags___NODE")
   ogImage: ContentfulAsset @link(by: "id", from: "ogImage___NODE")
-  blog_post: [ContentfulBlogPost] @link(by: "id", from: "blog post___NODE") @proxy(from: "blog post___NODE")
-  description: contentfulBlogPostDescriptionTextNode @link(by: "id", from: "description___NODE")
+  blog_post: [ContentfulBlogPost]
+    @link(by: "id", from: "blog post___NODE")
+    @proxy(from: "blog post___NODE", fromNode: false)
+  description: contentfulBlogPostDescriptionTextNode
+    @link(by: "id", from: "description___NODE")
   body: contentfulBlogPostBodyRichTextNode @link(by: "id", from: "body___NODE")
   spaceId: String
   contentful_id: String
@@ -559,14 +640,19 @@ type ContentfulBlogPost implements Node @derivedTypes @dontInfer {
   updatedAt: Date @dateformat
   sys: ContentfulBlogPostSys
   node_locale: String
-  recommendations: [ContentfulBlogPost] @link(by: "id", from: "recommendations___NODE")
+  recommendations: [ContentfulBlogPost]
+    @link(by: "id", from: "recommendations___NODE")
 }
 
-type ContentfulTag implements Node @derivedTypes @dontInfer {
+type ContentfulTag implements Node @dontInfer {
   title: String
   slug: String
-  blog_post: [ContentfulBlogPost] @link(by: "id", from: "blog post___NODE") @proxy(from: "blog post___NODE")
+  blog_post: [ContentfulBlogPost]
+    @link(by: "id", from: "blog post___NODE")
+    @proxy(from: "blog post___NODE", fromNode: false)
   spaceId: String
+  textColor: String
+  bgColor: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
@@ -574,13 +660,13 @@ type ContentfulTag implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulTagSys @derivedTypes {
+type ContentfulTagSys {
   type: String
   revision: Int
   contentType: ContentfulTagSysContentType
 }
 
-type ContentfulTagSysContentType @derivedTypes {
+type ContentfulTagSysContentType {
   sys: ContentfulTagSysContentTypeSys
 }
 
@@ -591,13 +677,13 @@ type ContentfulTagSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulBlogPostSys @derivedTypes {
+type ContentfulBlogPostSys {
   type: String
   revision: Int
   contentType: ContentfulBlogPostSysContentType
 }
 
-type ContentfulBlogPostSysContentType @derivedTypes {
+type ContentfulBlogPostSysContentType {
   sys: ContentfulBlogPostSysContentTypeSys
 }
 
@@ -608,7 +694,7 @@ type ContentfulBlogPostSysContentTypeSys {
   contentful_id: String
 }
 
-type contentfulCodeBlockCodeTextNode implements Node @derivedTypes @dontInfer {
+type contentfulCodeBlockCodeTextNode implements Node @dontInfer {
   code: String
   sys: contentfulCodeBlockCodeTextNodeSys
 }
@@ -617,7 +703,7 @@ type contentfulCodeBlockCodeTextNodeSys {
   type: String
 }
 
-type ContentfulCodeBlock implements Node @derivedTypes @dontInfer {
+type ContentfulCodeBlock implements Node @dontInfer {
   language: String
   heading: String
   slug: String
@@ -630,13 +716,13 @@ type ContentfulCodeBlock implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulCodeBlockSys @derivedTypes {
+type ContentfulCodeBlockSys {
   type: String
   revision: Int
   contentType: ContentfulCodeBlockSysContentType
 }
 
-type ContentfulCodeBlockSysContentType @derivedTypes {
+type ContentfulCodeBlockSysContentType {
   sys: ContentfulCodeBlockSysContentTypeSys
 }
 
@@ -647,19 +733,19 @@ type ContentfulCodeBlockSysContentTypeSys {
   contentful_id: String
 }
 
-type contentfulWorkDescriptionRichTextNode implements Node @derivedTypes @dontInfer {
+type contentfulWorkDescriptionRichTextNode implements Node @dontInfer {
   content: [contentfulWorkDescriptionRichTextNodeContent]
   nodeType: String
   description: String
   sys: contentfulWorkDescriptionRichTextNodeSys
 }
 
-type contentfulWorkDescriptionRichTextNodeContent @derivedTypes {
+type contentfulWorkDescriptionRichTextNodeContent {
   content: [contentfulWorkDescriptionRichTextNodeContentContent]
   nodeType: String
 }
 
-type contentfulWorkDescriptionRichTextNodeContentContent @derivedTypes {
+type contentfulWorkDescriptionRichTextNodeContentContent {
   data: contentfulWorkDescriptionRichTextNodeContentContentData
   marks: [contentfulWorkDescriptionRichTextNodeContentContentMarks]
   value: String
@@ -684,13 +770,14 @@ type contentfulWorkDescriptionRichTextNodeSys {
   type: String
 }
 
-type ContentfulWork implements Node @derivedTypes @dontInfer {
+type ContentfulWork implements Node @dontInfer {
   isMinor: Boolean
   name: String
   workLink: String
   bgColor: String
   image: ContentfulAsset @link(by: "id", from: "image___NODE")
-  description: contentfulWorkDescriptionRichTextNode @link(by: "id", from: "description___NODE")
+  description: contentfulWorkDescriptionRichTextNode
+    @link(by: "id", from: "description___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
@@ -701,13 +788,13 @@ type ContentfulWork implements Node @derivedTypes @dontInfer {
   detailsLink: String
 }
 
-type ContentfulWorkSys @derivedTypes {
+type ContentfulWorkSys {
   type: String
   revision: Int
   contentType: ContentfulWorkSysContentType
 }
 
-type ContentfulWorkSysContentType @derivedTypes {
+type ContentfulWorkSysContentType {
   sys: ContentfulWorkSysContentTypeSys
 }
 
@@ -718,7 +805,7 @@ type ContentfulWorkSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulSkills implements Node @derivedTypes @dontInfer {
+type ContentfulSkills implements Node @dontInfer {
   name: String
   description: String
   isLow: Boolean
@@ -732,13 +819,13 @@ type ContentfulSkills implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulSkillsSys @derivedTypes {
+type ContentfulSkillsSys {
   type: String
   revision: Int
   contentType: ContentfulSkillsSysContentType
 }
 
-type ContentfulSkillsSysContentType @derivedTypes {
+type ContentfulSkillsSysContentType {
   sys: ContentfulSkillsSysContentTypeSys
 }
 
@@ -749,7 +836,7 @@ type ContentfulSkillsSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulContacts implements Node @derivedTypes @dontInfer {
+type ContentfulContacts implements Node @dontInfer {
   name: String
   link: String
   order: Int
@@ -762,13 +849,13 @@ type ContentfulContacts implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulContactsSys @derivedTypes {
+type ContentfulContactsSys {
   type: String
   revision: Int
   contentType: ContentfulContactsSysContentType
 }
 
-type ContentfulContactsSysContentType @derivedTypes {
+type ContentfulContactsSysContentType {
   sys: ContentfulContactsSysContentTypeSys
 }
 
@@ -779,7 +866,8 @@ type ContentfulContactsSysContentTypeSys {
   contentful_id: String
 }
 
-type contentfulPersonalDataPersonDescriptionTextNode implements Node @derivedTypes @dontInfer {
+type contentfulPersonalDataPersonDescriptionTextNode implements Node
+  @dontInfer {
   personDescription: String
   sys: contentfulPersonalDataPersonDescriptionTextNodeSys
 }
@@ -788,13 +876,14 @@ type contentfulPersonalDataPersonDescriptionTextNodeSys {
   type: String
 }
 
-type ContentfulPersonalData implements Node @derivedTypes @dontInfer {
+type ContentfulPersonalData implements Node @dontInfer {
   name: String
   jobTitle: String
   email: String
   phone: String
   resume: ContentfulAsset @link(by: "id", from: "resume___NODE")
-  personDescription: contentfulPersonalDataPersonDescriptionTextNode @link(by: "id", from: "personDescription___NODE")
+  personDescription: contentfulPersonalDataPersonDescriptionTextNode
+    @link(by: "id", from: "personDescription___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
@@ -803,13 +892,13 @@ type ContentfulPersonalData implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulPersonalDataSys @derivedTypes {
+type ContentfulPersonalDataSys {
   type: String
   revision: Int
   contentType: ContentfulPersonalDataSysContentType
 }
 
-type ContentfulPersonalDataSysContentType @derivedTypes {
+type ContentfulPersonalDataSysContentType {
   sys: ContentfulPersonalDataSysContentTypeSys
 }
 
@@ -820,7 +909,7 @@ type ContentfulPersonalDataSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulContentType implements Node @derivedTypes @dontInfer {
+type ContentfulContentType implements Node @dontInfer {
   name: String
   displayField: String
   description: String

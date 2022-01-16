@@ -41,6 +41,8 @@ export const query = graphql`
             slug
             title
             id
+            textColor
+            bgColor
           }
           description {
             description

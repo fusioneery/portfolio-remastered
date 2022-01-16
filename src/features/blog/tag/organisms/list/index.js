@@ -10,9 +10,13 @@ import { Link } from 'ui/atoms/link'
 export const TagsList = ({ tags, variant = 'posts' }) => {
   return (
     <List {...{ variant }}>
-      {tags.map((tag, tagId) => (
-        <Tag {...{ variant }} to={`/blog/tag/${tag.slug}`} key={tagId}>
-          {tag.title}
+      {tags.map(({ slug, title, bgColor, textColor }) => (
+        <Tag
+          {...{ variant, bgColor, textColor }}
+          to={`/blog/tag/${slug}`}
+          key={slug}
+        >
+          {title}
         </Tag>
       ))}
     </List>
@@ -25,8 +29,6 @@ const Tag = styled(Link)`
   ${switchProp('variant', {
     post: css`
       padding: 8px;
-      background: ${hexToRGBA(theme.colors.background, 0.8)};
-      color: ${theme.colors.darkBackground};
       border-radius: 5px;
       font-size: ${theme.font.size.M - 2}px;
       margin: 5px;
@@ -37,8 +39,6 @@ const Tag = styled(Link)`
     `,
     posts: css`
       padding: 5px;
-      background: ${hexToRGBA(theme.colors.text, 0.9)};
-      color: ${theme.colors.background};
       border-radius: 3px;
       font-size: 15px;
       margin: 3px;
@@ -48,6 +48,9 @@ const Tag = styled(Link)`
       }
     `,
   })}
+  background: ${({ bgColor }) =>
+    hexToRGBA(bgColor || theme.colors.background, 0.9)};
+  color: ${({ textColor }) => textColor || theme.colors.text};
 `
 
 const List = styled.ul`

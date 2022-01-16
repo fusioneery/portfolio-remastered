@@ -92,7 +92,11 @@ export const RichTextRenderer = ({
             [BLOCKS.QUOTE]: (node, children) => children,
           },
         })
-        return <Quote {...{ otherMargin }}>{UnTaggedChildren}</Quote>
+        return (
+          <Quote {...{ otherMargin, linkBorderColor }}>
+            {UnTaggedChildren}
+          </Quote>
+        )
       },
       [BLOCKS.UL_LIST]: (_, children) => (
         <UL {...{ otherMargin, isMobile }}>{children}</UL>
@@ -184,6 +188,25 @@ const Quote = styled.blockquote`
   ${theme.media.tablet} {
     margin: ${prop('otherMargin')}px 0;
   }
+  a {
+    color: ${prop('linkColor')};
+    font-weight: 500;
+    position: relative;
+    ::before {
+      content: ' ';
+      background: ${prop('linkBorderColor')};
+      bottom: -2px;
+      height: 2px;
+      width: 100%;
+      transition: all 0.5s ease-in-out;
+      position: absolute;
+    }
+    :hover {
+      ::before {
+        width: 25%;
+      }
+    }
+  }
 `
 
 const LI = styled.li`
@@ -246,7 +269,7 @@ const UL = styled.ul`
 `
 
 const Italic = styled.i`
-  color: ${theme.colors.breeze};
+  color: ${theme.colors.background};
 `
 
 const Code = styled.code`
@@ -256,6 +279,7 @@ const Code = styled.code`
   letter-spacing: -0.5px;
   padding: 0px 6px;
   margin: 0px 2px;
+  line-height: 1.35;
   &::after {
     content: '';
     position: absolute;
@@ -275,6 +299,7 @@ const Mark = styled.mark`
   background-color: transparent;
   display: inline-block;
   letter-spacing: -0.5px;
+  line-height: 1.35;
   padding: 0px 6px;
   padding-bottom: 2px;
   margin: 0px 2px;
@@ -300,7 +325,7 @@ const Link = styled.a`
   &::before {
     content: ' ';
     background: ${prop('linkBorderColor')};
-    bottom: -2px;
+    bottom: -1px;
     height: 2px;
     width: 100%;
     transition: all 0.5s ease-in-out;
@@ -314,7 +339,8 @@ const Link = styled.a`
 `
 
 const Paragraph = styled.p`
-  line-height: 1.4;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
   margin-top: ${prop('pMargin')}px;
   margin-bottom: ${prop('pMargin')}px;
   font-size: inherit;
@@ -325,8 +351,8 @@ const H1 = styled.h1`
   font-weight: 800;
   font-size: ${prop('size')}px;
   font-family: ${theme.font.family.heading};
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 70px;
+  margin-bottom: 35px;
   ${theme.media.mobile} {
     font-size: ${({ size }) => size * 0.7}px;
   }
@@ -335,7 +361,7 @@ const H1 = styled.h1`
 const H2 = styled(H1)`
   font-weight: 700;
   font-size: ${prop('size')}px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 `
 
 const H3 = styled(H2)`

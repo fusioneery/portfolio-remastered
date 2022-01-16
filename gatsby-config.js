@@ -105,16 +105,17 @@ module.exports = {
         short_name: 'VA',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#ffffff',
+        theme_color: '#195B97',
         display: 'minimal-ui',
         icon: './static/images/icon.png',
+        lang: 'en',
         localize: [
           {
             start_url: `/ru/`,
             lang: `ru`,
             name: `Влад Абрамов Фронтенд-разработчик`,
             short_name: `Влад Абрамов`,
-            description: `Фронтенд-разработчик из Москвы с ростом в лида.`,
+            description: `Фронтенд-разработчик из Москвы.`,
           },
         ],
       },
@@ -131,7 +132,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-anchor-links',
       options: {
-        offset: -80,
+        offset: -20,
       },
     },
     {

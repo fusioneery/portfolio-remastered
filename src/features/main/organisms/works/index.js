@@ -139,6 +139,7 @@ export const Works = ({ works }) => {
                         />
                         <WorkInnerContainer>
                           <WorkName
+                            whileHover={{ opacity: 0.7 }}
                             onClick={onWorkNameClick(work.workLink)}
                             layout
                           >
@@ -174,10 +175,11 @@ export const Works = ({ works }) => {
                                     </Button>
                                   )}
                                   {work.codeLink && (
-                                    <Button type="outlined">
-                                      <a target="_blank" to={work.codeLink}>
-                                        <FormattedMessage id="button.code" />
-                                      </a>
+                                    <Button
+                                      type="outlined"
+                                      onClick={onWorkNameClick(work.codeLink)}
+                                    >
+                                      <FormattedMessage id="button.code" />
                                     </Button>
                                   )}
                                 </WorkButtons>
@@ -222,8 +224,7 @@ const ExternalLink = styled.a`
   opacity: 0;
   position: absolute;
   z-index: 3;
-  transition: opacity 0.3s ease-in-out;
-  transition-delay: 0.1s;
+  transition: opacity 0.2s ease-in-out;
   will-change: opacity;
   ${ifProp('visible', 'opacity: 0.7;')}
   &:hover {
@@ -428,14 +429,13 @@ const InnerContainer = styled.div`
 `
 
 const Container = styled.section`
-  //   min-height: 100vh;
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 0;
   width: 100%;
   margin: 0 auto;
   position: relative;
-  padding-top: 25vw;
+  padding-top: 23vw;
   background: ${theme.colors.darkBackground};
   color: ${theme.colors.background};
 `

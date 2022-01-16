@@ -36,7 +36,7 @@ export const theme = {
     smallTablet: `@media (max-width: ${sizes.smallTablet}px)`,
     mobile: `@media (max-width: ${sizes.mobile}px)`,
     smallMobile: `@media (max-width: ${sizes.smallMobile}px)`,
-    limitedHeight: `@media (max-height: 770px), (max-width: ${sizes.mobile}px), (min-width: ${sizes.largeDesktop}px) and (max-height: 860px)`,
+    limitedHeight: `@media (max-height: 770px), (max-width: ${sizes.mobile}px), (min-width: ${sizes.largeDesktop}px) and (max-height: 800px)`,
     cardLimit: `@media (max-width: 780px), (max-height: 630px)`,
   },
   container: {
@@ -45,8 +45,7 @@ export const theme = {
   },
   font: {
     family: {
-      body:
-        '"Source Sans Pro", Futura, Helvetica, Roboto, Arial, sans-serif-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+      body: '"Source Sans Pro", Futura, Helvetica, Roboto, Arial, sans-serif-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
       subheading: 'Montserrat',
       heading: 'Heading Pro Wide Trial',
     },

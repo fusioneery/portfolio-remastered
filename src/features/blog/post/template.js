@@ -1,14 +1,14 @@
+import React from 'react'
 import styled from '@emotion/styled'
+import { graphql } from 'gatsby'
 import { motion } from 'framer-motion'
 import { Disqus } from 'gatsby-plugin-disqus'
 import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
-import React from 'react'
 
 import { PostBody } from 'features/blog/post/organisms/body'
 import { BlogPosts } from 'features/blog/post/posts'
 import { TagsList } from 'features/blog/tag/organisms/list'
 import { Header } from 'features/main/organisms/header'
-import { graphql } from 'gatsby'
 import { useSiteMetadata } from 'hooks/use-site-metadata'
 import { getDateTitle } from 'lib/get-date-title'
 import { hexToRGBA } from 'lib/hex-to-rgba'
@@ -212,6 +212,8 @@ export const query = graphql`
         title
         id
         slug
+        textColor
+        bgColor
       }
       body {
         json

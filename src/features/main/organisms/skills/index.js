@@ -159,10 +159,11 @@ const BGText = styled.h2`
   font-family: ${theme.font.family.heading};
   font-weight: 800;
   top: 6%;
-  left: 9%;
-  font-size: min(15vw, 200px);
+  left: 4%;
+  font-size: min(12vw, 160px);
   ${theme.media.smallTablet} {
-    font-size: 25vw;
+    font-size: 12vw;
+    top: 7%;
   }
 `
 
@@ -170,6 +171,9 @@ const Section = styled(UISection)`
   z-index: 1;
   background: ${theme.colors.tertiary};
   position: relative;
-  padding-top: 17vw;
-  padding-bottom: 40px;
+  padding-top: 9vw;
+  padding-bottom: 0;
+  ${theme.media.mobile} {
+    padding-top: 15vw;
+  }
 `

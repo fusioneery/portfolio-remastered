@@ -74,7 +74,7 @@ const Syntax = styled.div`
 
 const Container = styled.section`
   margin-bottom: 25px;
-  margin-top: 55px;
+  margin-top: 45px;
   position: relative;
 `
 
