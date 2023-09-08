@@ -329,6 +329,9 @@ const Column = styled.div`
     margin: 0 auto;
     width: 100%;
   }
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 `
 
 const Work = styled(motion.article)`
