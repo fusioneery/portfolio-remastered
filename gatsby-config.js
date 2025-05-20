@@ -23,7 +23,7 @@ module.exports = {
   siteMetadata: {
     title: '',
     description: '',
-    siteUrl: 'https://vladabramov.pro',
+    siteUrl: 'https://vladabramov.me',
     image: '/images/share.png',
     basePath: 'blog',
   },
@@ -101,7 +101,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Vlad Abramov Frontend Dev',
+        name: 'Vlad Abramov Software Engineer',
         short_name: 'VA',
         start_url: '/',
         background_color: '#ffffff',
@@ -113,9 +113,9 @@ module.exports = {
           {
             start_url: `/ru/`,
             lang: `ru`,
-            name: `Влад Абрамов Фронтенд-разработчик`,
+            name: `Влад Абрамов Разработчик`,
             short_name: `Влад Абрамов`,
-            description: `Фронтенд-разработчик из Москвы.`,
+            description: `Разработчик с широким опытом в разработке продуктов в финтехе.`,
           },
         ],
       },

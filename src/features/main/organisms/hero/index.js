@@ -36,9 +36,9 @@ export const Hero = ({ personalData, contacts }) => {
           alt={`${name} ${jobTitle}`}
           itemProp="image"
           style={{ display: 'none' }}
-          src="https://vladabramov.pro/images/share.png"
+          src="https://vladabramov.me/images/share.png"
         />
-        <link itemProp="url" href="https://vladabramov.pro" />
+        <link itemProp="url" href="https://vladabramov.me" />
         <Header />
         <InfoCard {...{ name, jobTitle, personDescription }} resumeUrl={url} />
         <HeroFooter {...{ email, phone, contacts }} />

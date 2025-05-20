@@ -62,8 +62,8 @@ const PostTemplate = ({ data, pageContext }) => {
     "author": {
       "@type": "Person",
       "name": "${formatMessage({ id: 'name' })}",
-      "url": "https://vladabramov.pro",
-      "jobTitle": "Frontend Developer"
+      "url": "https://vladabramov.me",
+      "jobTitle": "Software Engineer"
     },
   }`
   return (
@@ -181,7 +181,7 @@ const Container = styled.article`
 `
 
 export const query = graphql`
-  query($slug: String!, $locale: String!) {
+  query ($slug: String!, $locale: String!) {
     contentfulBlogPost(slug: { eq: $slug }, node_locale: { eq: $locale }) {
       title
       slug

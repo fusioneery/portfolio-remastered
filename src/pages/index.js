@@ -3,10 +3,10 @@ import React from 'react'
 import { BlogLead } from 'features/blog/organisms/lead'
 import { BlogPosts } from 'features/blog/post/posts'
 import { Hero } from 'features/main/organisms/hero'
-import { Skills } from 'features/main/organisms/skills'
+// import { Skills } from 'features/main/organisms/skills'
 import { graphql } from 'gatsby'
 
-import { Works } from 'features/main/organisms/works/index'
+// import { Works } from 'features/main/organisms/works/index'
 import { Layout } from 'ui/molecules/layout'
 import { SEO } from 'lib/seo'
 
@@ -136,8 +136,8 @@ export default ({
         contacts={allContentfulContacts.edges.map(mapEgdesToNodes)}
         personalData={allContentfulPersonalData.edges.map(mapEgdesToNodes)}
       />
-      <Skills skills={allContentfulSkills.edges.map(mapEgdesToNodes)} />
-      <Works works={allContentfulWork.edges.map(mapEgdesToNodes)} />
+      {/* <Skills skills={allContentfulSkills.edges.map(mapEgdesToNodes)} />
+      <Works works={allContentfulWork.edges.map(mapEgdesToNodes)} /> */}
       <BlogLead paddingTop="15vh" />
       <BlogPosts
         padding
