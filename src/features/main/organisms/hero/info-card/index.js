@@ -82,11 +82,11 @@ export const InfoCard = ({ resumeUrl, name, jobTitle, personDescription }) => {
         />
         <InViewAnimation>
           <ButtonsContainer variants={buttonsContainerVariants}>
-            <Button fontWeight={600} type="primary" icon={<PortfolioIcon />}>
+            {/* <Button fontWeight={600} type="primary" icon={<PortfolioIcon />}>
               <Link to={'/#' + MAIN_ANCHORS.Works}>
                 <FormattedMessage id="button.portfolio" />
               </Link>
-            </Button>
+            </Button> */}
             <Button
               fontWeight={600}
               onClick={() =>
