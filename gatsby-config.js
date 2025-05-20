@@ -41,7 +41,7 @@ module.exports = {
       resolve: `gatsby-plugin-intl`,
       options: {
         path: `${__dirname}/src/locales`,
-        languages: [`en`, `ru`],
+        languages: [`en`],
         defaultLanguage: `en`,
         redirect: false,
       },
@@ -109,15 +109,6 @@ module.exports = {
         display: 'minimal-ui',
         icon: './static/images/icon.png',
         lang: 'en',
-        localize: [
-          {
-            start_url: `/ru/`,
-            lang: `ru`,
-            name: `Влад Абрамов Разработчик`,
-            short_name: `Влад Абрамов`,
-            description: `Разработчик с широким опытом в разработке продуктов в финтехе.`,
-          },
-        ],
       },
     },
     // 'gatsby-plugin-offline',

@@ -62,7 +62,7 @@ export const Header = ({ variant = 'main' }) => {
             )}
           </PrimaryLinkText>
         </PrimaryLink>
-        <Langs color={localTheme.langColor}>
+        {/* <Langs color={localTheme.langColor}>
           <Lang onClick={changeLang('en')} isCurrent={locale === 'en'}>
             EN
           </Lang>
@@ -70,7 +70,7 @@ export const Header = ({ variant = 'main' }) => {
           <Lang onClick={changeLang('ru')} isCurrent={locale === 'ru'}>
             RU
           </Lang>
-        </Langs>
+        </Langs> */}
       </Container>
     </InViewAnimation>
   )
