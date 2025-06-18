@@ -1,20 +1,20 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
-import { navigate } from 'gatsby'
+import { useIntl } from 'gatsby-plugin-intl'
+// import { navigate } from 'gatsby'
 import Typist from 'react-typist'
 import { prop } from 'styled-tools'
 
-import { MAIN_ANCHORS } from 'features/main/constants/anchors'
+// import { MAIN_ANCHORS } from 'features/main/constants/anchors'
 import { hexToRGBA } from 'lib/hex-to-rgba'
 import { theme } from 'lib/theme'
-import CvIcon from 'resources/icons/cv.svg'
-import PortfolioIcon from 'resources/icons/portfolio.svg'
+// import CvIcon from 'resources/icons/cv.svg'
+// import PortfolioIcon from 'resources/icons/portfolio.svg'
 import { Button } from 'ui/atoms/button'
 import { Heading } from 'ui/atoms/heading'
 import { InViewAnimation } from 'ui/atoms/in-view-animation'
-import { Link } from 'ui/atoms/link'
+// import { Link } from 'ui/atoms/link'
 
 import 'react-typist/dist/Typist.css'
 
@@ -48,7 +48,7 @@ const buttonsContainerVariants = {
   },
 }
 
-export const InfoCard = ({ resumeUrl, name, jobTitle, personDescription }) => {
+export const InfoCard = ({ name, jobTitle, personDescription }) => {
   const isRus = useIntl().locale === 'ru'
   const descriptionWithParagraphes = personDescription.replace(/\n/gi, '<br />')
   return (
@@ -80,13 +80,13 @@ export const InfoCard = ({ resumeUrl, name, jobTitle, personDescription }) => {
             __html: descriptionWithParagraphes,
           }}
         />
-        <InViewAnimation>
+        {/* <InViewAnimation>
           <ButtonsContainer variants={buttonsContainerVariants}>
-            {/* <Button fontWeight={600} type="primary" icon={<PortfolioIcon />}>
+            <Button fontWeight={600} type="primary" icon={<PortfolioIcon />}>
               <Link to={'/#' + MAIN_ANCHORS.Works}>
                 <FormattedMessage id="button.portfolio" />
               </Link>
-            </Button> */}
+            </Button>
             <Button
               fontWeight={600}
               onClick={() =>
@@ -98,23 +98,23 @@ export const InfoCard = ({ resumeUrl, name, jobTitle, personDescription }) => {
               <FormattedMessage id="button.cv" />
             </Button>
           </ButtonsContainer>
-        </InViewAnimation>
+        </InViewAnimation> */}
       </Container>
     </InViewAnimation>
   )
 }
 
-const ButtonsContainer = styled.div`
-  margin-top: 40px;
-  display: flex;
-  align-items: center;
-  & > *:not(:first-of-type) {
-    margin-left: 20px;
-  }
-  ${theme.media.smallTablet} {
-    margin-top: 20px;
-  }
-`
+// const ButtonsContainer = styled.div`
+//   margin-top: 40px;
+//   display: flex;
+//   align-items: center;
+//   & > *:not(:first-of-type) {
+//     margin-left: 20px;
+//   }
+//   ${theme.media.smallTablet} {
+//     margin-top: 20px;
+//   }
+// `
 
 const Description = styled.h3`
   margin-top: 40px;
