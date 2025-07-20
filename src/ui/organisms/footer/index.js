@@ -68,21 +68,8 @@ export const Footer = () => {
       <Cols>
         <Col type="first">
           <div>
-            <div>
-              <FooterLink to={resume} isMain>
-                <FormattedMessage id="footer.cv" />
-              </FooterLink>
-            </div>
             <FooterLink to="/blog" isMain>
               <FormattedMessage id="blog" />
-            </FooterLink>
-          </div>
-          <div>
-            <FooterLink to={'/#' + MAIN_ANCHORS.Skills}>
-              <FormattedMessage id="footer.myskills" />
-            </FooterLink>
-            <FooterLink to={'/#' + MAIN_ANCHORS.Works}>
-              <FormattedMessage id="footer.myworks" />
             </FooterLink>
           </div>
         </Col>
